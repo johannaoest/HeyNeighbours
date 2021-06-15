@@ -1,1 +1,5 @@
-
+<% @jobs.each do |job| %>
+  <%= job.title %>
+  <%= job.details %>
+  <%= job.price %>
+<% end %>
