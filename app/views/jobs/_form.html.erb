@@ -8,6 +8,8 @@
         <%= f.input :duration %>
         <%= f.input :photo, as: :file %>
 
-      <%= f.submit 'Offer your job', class:'green-btn' %>
+      <%= f.submit 'Offer your job', class:'btn-orange' %>
   <% end %>
-    <button type="button" class="green-btn mt-3" data-dismiss="modal">Back</button>
+  <div class="link">
+    <%= link_to "Back", :back %>
+  </div>
