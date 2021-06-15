@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 <div class="container">
   <div class="row">
     <% @jobs.each do |job| %>
@@ -17,6 +18,24 @@
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
         </div>
       </div>
+      <% if policy(job).edit? %>
+        <%= link_to 'Edit',edit_job_path(job) %>
+      <% end %>
+      <% if policy(job).destroy? %>
+        <%= link_to 'Destroy',job, method: :delete, data: { confirm: 'Are you sure you want to delete this?'} %>
+      <% end %>
     <% end %>
   </div>
 </div>
+
+
+
+
+
+
+
+
+<% if policy(Job).new? %>
+  <% link_to 'New Job', new_job_path %>
+<% end %>
+
