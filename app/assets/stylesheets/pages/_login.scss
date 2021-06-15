@@ -1,0 +1,24 @@
+.login {
+    position: relative;
+    margin: auto;
+    width: 45%;
+    padding: 25px;
+    background-color: rgba($color: #1b2d4221, $alpha: 0.7);
+    color: white;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+
+.form-inputs {
+    font-size: 25px;
+}
+
+.input {
+    background-color: red;
+}
+
+.link {
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+}

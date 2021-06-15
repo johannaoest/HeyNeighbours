@@ -1,0 +1,13 @@
+  <%= simple_form_for(job) do |f| %>
+
+        <%= f.input :title %>
+        <%= f.input :details, as: :text %>
+        <%= f.input :price %>
+        <%= f.input :location %>
+        <%= f.input :date %>
+        <%= f.input :duration %>
+        <%= f.input :photo, as: :file %>
+
+      <%= f.submit 'Offer your job', class:'green-btn' %>
+  <% end %>
+    <button type="button" class="green-btn mt-3" data-dismiss="modal">Back</button>
