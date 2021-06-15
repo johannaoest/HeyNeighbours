@@ -1,8 +1,9 @@
 <div class="home-container">
-    <div class="left">
-        <h1>Look for a job</h1>
-    </div>
-    <div class="right">
-        <h1>Offer a job</h1>
-    </div>
+    <%= link_to jobs_path, class:'left' do %>
+            <h1>Look for a job</h1>
+    <% end %>
+
+    <%= link_to  new_job_path, class:'right' do %>
+            <h1>Offer a job</h1>
+    <% end %>
 </div>

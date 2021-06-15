@@ -6,4 +6,6 @@ class Job < ApplicationRecord
   validates :date, presence: true
   validates :price, numericality: { greater_than_or_equal: 0 }
   validates :duration, numericality: { greater_than_or_equal: 0 }
+
+  has_one_attached :photo
 end
