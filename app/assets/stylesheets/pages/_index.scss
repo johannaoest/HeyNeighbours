@@ -7,13 +7,15 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 20px rgba(black, $alpha: 0.7);
-  width: 70%;
-  height: 80vh;
+  width: 80%;
+  height: 75vh;
   margin: auto;
+  margin-bottom: 20px;
 
 }
 .background-container {
   overflow: scroll;
+  overflow-x: hidden;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
