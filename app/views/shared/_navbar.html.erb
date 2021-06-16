@@ -10,47 +10,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <% unless @hidden_navbar %>
-          <li class="nav-item">
-            <%= link_to "Look for a job", jobs_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Offer a job", new_job_path, class: "nav-link" %>
-          </li>
-        <% end %>
-        <li class="nav-item">
-        </li>
-        <li class="nav-item">
-
-        </li>
-        <li class="nav-item dropdown">
-          <img src= <%= choose_avatar(current_user) %> class="card-job-user avatar-bordered" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
- 
-
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My profile", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "My jobs", jobs_path(my_jobs: true), class: "dropdown-item" %>
-            <%= link_to "My applyments", bookings_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Messages", "#", class: "dropdown-item" %>
-
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
+        <%= render 'shared/logged_in_nav' %>
       <% else %>
-        <% unless @hidden_navbar %>
-          <li class="nav-item">
-            <%= link_to "Look for a job", jobs_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Offer a job", new_job_path, class: "nav-link" %>
-          </li>
-        <% end %>
-        <li class="nav-item">
-          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+        <%= render 'shared/logged_out_nav' %>
       <% end %>
     </ul>
   </div>
