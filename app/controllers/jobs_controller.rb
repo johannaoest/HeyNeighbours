@@ -3,6 +3,16 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all
     @jobs = policy_scope(Job)
+
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    # @jobs = Job.where.not(latitude: nil, longitude: nil)
+    @markers = @jobs.geocoded.map do |job|
+      {
+        lat: job.latitude,
+        lng: job.longitude,
+        info_window: render_to_string(partial: "/jobs/info_window", locals: { job: job })
+      }
+    end
   end
 
   def new
