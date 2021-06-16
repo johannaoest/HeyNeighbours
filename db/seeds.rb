@@ -5,18 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Booking.destroy_all
 Job.destroy_all
 puts "Deleting all jobs..."
 User.destroy_all
 puts "Deleting all users..."
 
-user = User.new(
+lili = User.new(
   first_name: "Lili",
   last_name: "Vincze",
   introduction: "Hello everybody, I really enjoy helping out with taking care of animals or doing some gardening jobs. Usually I need help with cleaning or grocery shopping. Feel free to message me!",
   password: "123456",
   email: "lili@vincze.com",
 )
+lili.save!
 
 puts "Created users."
 
@@ -29,7 +31,7 @@ job = Job.new(
   price: 8,
   duration: 1,
   date: "2021. 06. 17.",
-  user: User.find(1)
+  user: lili
 )
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
@@ -42,7 +44,7 @@ job = Job.new(
   price: 22,
   duration: 3,
   date: "2021. 06. 19.",
-  user: User.find(1)
+  user: lili
 )
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
@@ -55,7 +57,7 @@ job = Job.new(
   price: 11,
   duration: 2,
   date: "2021. 06. 16.",
-  user: User.find(2)
+  user: lili
 )
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
@@ -68,7 +70,7 @@ job = Job.new(
   price: 30,
   duration: 5,
   date: "2021. 06. 16.",
-  user: User.find(3)
+  user: lili
 )
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
@@ -81,7 +83,7 @@ job = Job.new(
   price: 24,
   duration: 3,
   date: "2021. 06. 16.",
-  user: User.find(2)
+  user: lili
 )
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
@@ -94,7 +96,7 @@ job = Job.new(
   price: 8,
   duration: 1,
   date: "2021. 06. 19.",
-  user: User.find(2)
+  user: lili
 )
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
