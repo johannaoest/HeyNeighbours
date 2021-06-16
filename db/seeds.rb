@@ -5,18 +5,50 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Category.destroy_all
 Booking.destroy_all
 Job.destroy_all
 puts "Deleting all jobs..."
 User.destroy_all
 puts "Deleting all users..."
 
+Animal = Category.create(
+  name: "Animal care/Petsitting")
+
+Architecture = Category.create(
+  name:  "Architecture/Construction")
+
+Baby = Category.create(
+  name: "Baby/Child care")
+
+Education = Category.create(
+  name: "Education/Training")
+
+Food = Category.create(
+  name: "Food /Grocery Shopping")
+
+Home = Category.create(
+  name: "Home/Gardening")
+
+Technology = Category.create(
+  name: "Information Technology")
+
+Production = Category.create(
+  name: "Production/Manufacturing")
+
+Logistics = Category.create(
+  name: "Distribution/Logistics")
+
+Others = Category.create(
+  name: "Others")
+
+
 lili = User.new(
   first_name: "Lili",
   last_name: "Vincze",
   introduction: "Hello everybody, I really enjoy helping out with taking care of animals or doing some gardening jobs. Usually I need help with cleaning or grocery shopping. Feel free to message me!",
   password: "123456",
-  email: "lili@vincze.com",
+  email: "lili@vincze.com"
 )
 lili.save!
 
@@ -33,6 +65,7 @@ job = Job.new(
   date: "2021. 06. 17.",
   user: lili
 )
+UserCategory.create(user: lili, category: Baby)
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
 
@@ -46,6 +79,7 @@ job = Job.new(
   date: "2021. 06. 19.",
   user: lili
 )
+UserCategory.create(user: lili, category: Food)
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
 
@@ -59,6 +93,7 @@ job = Job.new(
   date: "2021. 06. 16.",
   user: lili
 )
+UserCategory.create(user: lili, category: Home)
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
 
@@ -72,6 +107,7 @@ job = Job.new(
   date: "2021. 06. 16.",
   user: lili
 )
+UserCategory.create(user: lili, category: Home)
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
 
@@ -85,6 +121,7 @@ job = Job.new(
   date: "2021. 06. 16.",
   user: lili
 )
+UserCategory.create(user: lili, category: Home)
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
 
@@ -98,11 +135,14 @@ job = Job.new(
   date: "2021. 06. 19.",
   user: lili
 )
+UserCategory.create(user: lili, category: Home)
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
 
 
 puts "Created jobs"
+puts "Created categories"
+
 
 # t.bigint "user_id", null: false
 # t.string "title"
