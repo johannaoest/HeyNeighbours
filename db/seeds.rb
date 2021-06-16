@@ -7,6 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Job.destroy_all
 puts "Deleting all jobs..."
+User.destroy_all
+puts "Deleting all users..."
+
+user = User.new(
+  first_name: "Lili",
+  last_name: "Vincze",
+  introduction: "Hello everybody, I really enjoy helping out with taking care of animals or doing some gardening jobs. Usually I need help with cleaning or grocery shopping. Feel free to message me!",
+  password: "123456",
+  email: "lili@vincze.com",
+)
+
+puts "Created users."
+
 
 file = URI.open('https://images.unsplash.com/photo-1583511655826-05700d52f4d9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80')
 job = Job.new(
