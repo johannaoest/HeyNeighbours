@@ -6,6 +6,7 @@
         <%= f.input :location %>
         <%= f.input :date %>
         <%= f.input :duration %>
+        <%= f.input :category, :collection=>Job.category%>
         <%= f.input :photo, as: :file %>
 
       <%= f.submit 'Offer your job', class:'btn-orange' %>
