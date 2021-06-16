@@ -1,8 +1,13 @@
 class JobsController < ApplicationController
   before_action :set_job, only: %i[show destroy edit update]
   def index
-    @jobs = Job.all
-    @jobs = policy_scope(Job)
+
+    if params[:my_jobs]
+      @jobs = policy_scope(Job).where(user: current_user).order(created_at: :desc)
+    else
+      @jobs = policy_scope(Job).where.not(user: current_user).order(created_at: :desc)
+    end
+
 
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     # @jobs = Job.where.not(latitude: nil, longitude: nil)
