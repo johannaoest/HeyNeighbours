@@ -1,7 +1,7 @@
-class JobPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      # Job.where(user: user)
+    # Job.where(user: user)
       scope.all
     end
   end

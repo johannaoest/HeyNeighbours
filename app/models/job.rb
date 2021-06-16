@@ -1,5 +1,6 @@
 class Job < ApplicationRecord
   belongs_to :user
+  has_many :bookings
 
   validates :title, presence: true
   validates :location, presence: true
@@ -8,4 +9,11 @@ class Job < ApplicationRecord
   validates :duration, numericality: { greater_than_or_equal: 0 }
 
   has_one_attached :photo
+
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
+  def self.category
+    ['Dogwalking', 'Gardening', 'Shopping']
+  end
 end

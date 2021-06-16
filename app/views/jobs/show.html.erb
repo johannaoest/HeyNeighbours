@@ -1,2 +1,55 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+<div class="show-container">
+    <div class="row">
+        <div class="job-details">
+            <div class="img-container col-2">
+                <%= image_tag choose_image(@job), class: "img-job" %>
+            </div>
+            <div class="job-info col-10">
+                <h2><%= @job.title %></h2>
+                <p>Details: <%= @job.details %></p>
+                <table style="width: 100%", border=1 frame="BELOW" rules="NONE">
+                    <thead>
+                        <tr>
+                        <th>Date</th>
+                        <th>Duration</th>
+                        <th>Earning</th>
+                        <th>Location</th>
+                        <th colspan="6"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%= @job.date %></td>
+                            <td><%= @job.duration %> hours </td>
+                            <td><%= @job.price %> euros</td>
+                            <td><%= @job.location %></td>
+                            <td><%= @job.category[0] %></td>
+                            <td><%= @job.category[1] %></td>
+                            <td><%= @job.category[2] %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="employer-container">
+            <div class="avatar-container col-2">
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-bordered" %>
+            </div>
+            <div class="employer-info col-6">
+                <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
+                <h3>Introduction</h3>
+                <p><%= @job.user.introduction %></p>
+            </div>
+            <div class="reviews col-4">
+                <% if @job.bookings.where(user: current_user).present? %>
+                    <h2>You booked!</h2>
+                <% else %>
+                    <%= link_to "Apply for this job", job_bookings_path(@job), method: :post, class:"btn-orange" %>
+                <% end %>
+                <h1>Reviews container</h1>
+            </div>
+        </div>
+    </div>
+</div>
