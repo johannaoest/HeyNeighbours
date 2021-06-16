@@ -14,6 +14,6 @@ class Job < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
 
   def self.category
-    ['Dogwalking', 'Gardening', 'Shopping']
+    ["Animal care/Petsitting", "Architecture/Construction", "Baby/Child care", "Education/Training", "Food /Grocery Shopping", "Home/Gardening", "Information Technology", "Production/Manufacturing", "Distribution/Logistics" , "Others"]
   end
 end
