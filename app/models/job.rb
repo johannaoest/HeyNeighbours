@@ -8,4 +8,7 @@ class Job < ApplicationRecord
   validates :duration, numericality: { greater_than_or_equal: 0 }
 
   has_one_attached :photo
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
