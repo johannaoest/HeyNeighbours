@@ -7,8 +7,14 @@
   z-index: 55555;
 }
 
-h2 {
+#logo {
   font-size: 45px;
+  color: white;
+}
+
+#logo:hover {
+  color: $orange;
+  transition: 0.3s ease-in-out;
 }
 
 .navbar-dark .navbar-nav .nav-link {
