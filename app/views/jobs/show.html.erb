@@ -40,6 +40,11 @@
                 <p><%= @job.user.introduction %></p>
             </div>
             <div class="reviews col-4">
+                <% if @job.bookings.where(user: current_user).present? %>
+                    <h2>You booked!</h2>
+                <% else %>
+                    <%= link_to "Apply for this job", job_bookings_path(@job), method: :post, class:"btn-orange" %>
+                <% end %>
                 <h1>Reviews container</h1>
             </div>
         </div>

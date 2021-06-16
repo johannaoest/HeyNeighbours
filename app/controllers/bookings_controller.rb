@@ -18,12 +18,12 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
     @booking.job = Job.find(params[:job_id])
     @booking.user = current_user
-
+    authorize @booking
     if @booking.save
-      redirect_to bookings_path
+      redirect_to job_path(@booking.job)
     else
       render 'new'
     end
@@ -33,9 +33,5 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
-  end
-
-  def booking_params
-    params.require(booking).require(:user, :job)
   end
 end
