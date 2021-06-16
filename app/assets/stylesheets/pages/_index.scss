@@ -2,11 +2,12 @@
 @import "home";
 
 .background-container {
-  padding: 10px;
+  background-color: rgba($color: #1b2d4221, $alpha: 0.7);
+  color: white;
+  padding: 20px;
   border-radius: 5px;
-  box-shadow: 1 1 7px rgba(0,0,0,0.2);
-  background-color: rgba($color: white, $alpha: 0.70);
-  width: 85%;
+  box-shadow: 0 0 20px rgba(black, $alpha: 0.7);
+  width: 70%;
   height: 80vh;
   margin: auto;
 
