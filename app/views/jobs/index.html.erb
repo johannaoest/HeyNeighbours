@@ -15,7 +15,7 @@
           <% end %>
 
           <div class="col-6 col-sm-4">
-            <%= link_to job_path(job) do %>
+            <%= link_to job_path(job), class:"job-link" do %>
               <div class="card-job">
                 <div class="card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= choose_photo(job) %>)">
                   <h2><%= job.title %></h2>
