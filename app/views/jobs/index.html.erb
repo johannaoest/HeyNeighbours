@@ -3,7 +3,7 @@
   <div class="row">
     <% @jobs.each do |job| %>
       <div class="col">
-        <div class="card-trip">
+        <div class="card-job">
           <div class="card-photo">
             <% if job.photo.attached? %>
               <%= cl_image_tag job.photo.key %>
@@ -11,7 +11,7 @@
               <%= image_tag 'random.jpg' %>
             <% end %>
           </div>
-          <div class="card-trip-infos">
+          <div class="card-job-infos">
             <div class="card-title">
               <h2><%= job.title %></h2>
             </div>
@@ -28,14 +28,14 @@
               </div>
 
               <div class="price-info">
-                <h2 class="card-trip-pricing"><%= job.price %> €</h2>
+                <h2 class="card-job-pricing"><%= job.price %> €</h2>
               </div>
             </div>
 
             <% if job.user.avatar.attached? %>
-              <%= cl_image_tag job.user.avatar.key, class:"card-trip-user avatar-bordered"%>
+              <%= cl_image_tag job.user.avatar.key, class:"card-job-user avatar-bordered"%>
             <% else%>
-              <%= image_tag 'profile.png', class:"card-trip-user avatar-bordered"%>
+              <%= image_tag 'profile.png', class:"card-job-user avatar-bordered"%>
             <% end %>
           </div>
         </div>
