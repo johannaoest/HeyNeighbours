@@ -1,6 +1,29 @@
 // Import page-specific CSS files here.
 @import "home";
 
+.background-container {
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 1 1 7px rgba(0,0,0,0.2);
+  background-color: rgba($color: white, $alpha: 0.70);
+  width: 85%;
+  height: 80vh;
+  margin: auto;
+
+}
+.background-container {
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.section {
+  scroll-snap-align: start;
+  width: 100%;
+  height: 80vh;
+  padding: 15px;
+}
+
 .card-job {
   overflow: hidden;
   background: white;
@@ -20,10 +43,15 @@
 
 .card-photo h2 {
   color: white;
+ 
+}
+
+.card-job h2 {
   font-size: 20px;
   font-weight: bold;
   margin: 0;
 }
+
 
 .card-job p {
   font-size: 12px;
@@ -33,8 +61,7 @@
 
 
 .card-job .card-job-infos {
-  padding: 0 !important;
-  display: flex;
+  padding: 10px;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
@@ -45,4 +72,8 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+#card-job-pricing {
+  font-size: 20px;
 }
