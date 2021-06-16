@@ -1,0 +1,44 @@
+.show-container {
+    background-color: rgba($color: white, $alpha: 0.70);
+    width: 70%;
+    height: 80vh;
+    margin: auto;
+}
+
+.img-container {
+    height: 170px;
+    width: 200px;
+}
+
+.img-job {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    border: black 2px solid;
+}
+
+.job-details {
+    display: inline-flex;
+    padding: 5px;
+}
+
+.employer-container {
+    display: inline-flex;
+    padding: 10px;
+}
+
+.avatar-container {
+    height: 40px;
+}
+
+.employer-info {
+    margin-left: -40px;
+}
+
+.avatar-bordered {
+    width: 40px;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    border: white 1px solid;
+  }
