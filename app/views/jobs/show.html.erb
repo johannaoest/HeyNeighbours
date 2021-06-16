@@ -1,2 +1,29 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+<div class="show-container">
+    <div class="row">
+        <div class="job-details">
+            <div class="img-container col-2">
+                <%= image_tag choose_image(@job), class: "img-job" %>
+            </div>
+            <div class="job-info col-10">
+                <h2><%= @job.title %></h2>
+                <p>Details: <%= @job.details %></p>
+                <p><%= @job.date %> | <%= @job.duration %> hours | <%= @job.price %> euros | <%= @job.location %></p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="employer-container">
+            <div class="avatar-container col-2">
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-bordered" %>
+            </div>
+            <div class="employer-info col-6">
+                <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
+                <h3>Introduction</h3>
+                <p><%= @job.user.introduction %></p>
+            </div>
+            <div class="reviews col-4">
+                <h1>Reviews container</h1>
+            </div>
+        </div>
+    </div>
+</div>
