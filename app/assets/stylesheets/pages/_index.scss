@@ -34,10 +34,12 @@ a {
 
 .card-job {
   overflow: hidden;
+  width: 330px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 3px;
   transition: transform .2s;
+  border: white 1px solid;
 }
 
 .card-job:hover {
@@ -49,7 +51,7 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  height: 175px;
+  height: 205px;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -58,18 +60,19 @@ a {
 
 .card-photo h2 {
   color: white;
- 
 }
 
 .card-job h2 {
-  font-size: 20px;
+  font-size: 25px;
+  letter-spacing: 1px;
   font-weight: bold;
+  text-shadow: black 1px 1px;
   margin: 0;
 }
 
 
 .card-job p {
-  font-size: 13px;
+  font-size: 15px;
   opacity: .7;
   margin: 0;
 }
