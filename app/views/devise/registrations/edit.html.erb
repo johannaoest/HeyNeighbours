@@ -26,6 +26,10 @@
                   required: true,
                   input_html: { autocomplete: "current-password" } %>
       <%= f.input :avatar, as: :file %>
+
+      <%= f.association :categories, as: :check_boxes,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item'  %>
     </div>
 
     <div class="form-actions">
@@ -35,7 +39,7 @@
 
 
   <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-  
+
   <div class="d-flex justify-content-end" style="width: 100%">
     <%= link_to "Back", :back, class:"btn-orange" %>
   </div>
