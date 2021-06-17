@@ -9,9 +9,9 @@ module ImageHelper
 
   def choose_image_category(category)
     if category.photo.attached?
-      cl_image_path category.photo.key
+      cl_image_tag category.photo.key
     else
-      asset_path 'profile.png'
+      image_tag 'profile.png'
     end
   end
 end

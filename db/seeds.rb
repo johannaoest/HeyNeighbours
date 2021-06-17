@@ -19,57 +19,62 @@ puts "Deleting all users..."
 animal = Category.create(
   name: "Animal care/Petsitting")
   file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623924305/animal.jpg')
-  animal.photo.attach(io:file, filename: 'animal.png', content_type: 'image/png')
+  animal.photo.attach(io:file, filename: 'animal.jpg', content_type: 'image/jpg')
+  animal.save
 
 architecture = Category.create(
   name:  "Architecture/Construction")
   file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623924228/architecture.png')
-  animal.photo.attach(io:file, filename: 'architecture.png', content_type: 'image/png')
+  architecture .photo.attach(io:file, filename: 'architecture.png', content_type: 'image/png')
+  architecture.save
 
 baby = Category.create(
   name: "Baby/Child care")
   file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623924296/baby.png')
-  animal.photo.attach(io:file, filename: 'baby.png', content_type: 'image/png')
+  baby.photo.attach(io:file, filename: 'baby.png', content_type: 'image/png')
+  baby.save
 
 education = Category.create(
   name: "Education/Training")
   file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623924312/education.jpg')
-  animal.photo.attach(io:file, filename: 'education.jpg', content_type: 'image/jpg')
+  education.photo.attach(io:file, filename: 'education.jpg', content_type: 'image/jpg')
+  education.save
 
-food = Category.create(
+shop = Category.create(
   name: "Food /Grocery Shopping")
-  file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623924369/food.png')
-  animal.photo.attach(io:file, filename: 'food.png', content_type: 'image/png')
+  file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623943384/shop.png')
+  shop.photo.attach(io:file, filename: 'shop.png', content_type: 'image/png')
+  shop.save
 
 gardening = Category.create(
   name: "Home/Gardening")
   file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623924328/gardening.png')
-  animal.photo.attach(io:file, filename: 'gardening.png', content_type: 'image/png')
+  gardening.photo.attach(io:file, filename: 'gardening.png', content_type: 'image/png')
+  gardening.save
 
 technology = Category.create(
   name: "Information Technology")
   file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623924410/technology.jpg')
-  animal.photo.attach(io:file, filename: 'echnology.jpg', content_type: 'image/jpg')
+  technology.photo.attach(io:file, filename: 'echnology.jpg', content_type: 'image/jpg')
+  technology.save
 
 production = Category.create(
   name: "Production/Manufacturing")
   file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623924348/production.jpg')
-  animal.photo.attach(io:file, filename: 'production.jpg', content_type: 'image/jpg')
+  production.photo.attach(io:file, filename: 'production.jpg', content_type: 'image/jpg')
+  production.save
 
 logistics = Category.create(
   name: "Distribution/Logistics")
   file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623924340/logistics.jpg')
-  animal.photo.attach(io:file, filename: 'logistics.jpg', content_type: 'image/jpg')
-
-others = Category.create(
-  name: "Others")
-  file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623924322/others.png')
-  animal.photo.attach(io:file, filename: 'other.png', content_type: 'image/png')
+  logistics.photo.attach(io:file, filename: 'logistics.jpg', content_type: 'image/jpg')
+  logistics.save
 
 
 lili = User.new(
   first_name: "Lili",
   last_name: "Vincze",
+  address: "Calle San Lorenzo 20, Madrid, Spain",
   introduction: "Hello everybody, I really enjoy helping out with taking care of animals or doing some gardening jobs. Usually I need help with cleaning or grocery shopping. Feel free to message me!",
   password: "123456",
   email: "lili@vincze.com",
@@ -104,7 +109,7 @@ job = Job.new(
   date: "2021. 06. 19.",
   user: lili
 )
-UserCategory.create(user: lili, category: food)
+UserCategory.create(user: lili, category: shop)
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
 
@@ -146,7 +151,7 @@ job = Job.new(
   date: "2021. 06. 16.",
   user: lili
 )
-UserCategory.create(user: lili, category: others)
+UserCategory.create(user: lili, category: gardening)
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
 
@@ -160,7 +165,7 @@ job = Job.new(
   date: "2021. 06. 19.",
   user: lili
 )
-UserCategory.create(user: lili, category: others)
+UserCategory.create(user: lili, category: gardening)
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
 
