@@ -14,13 +14,14 @@
                         <th>Duration</th>
                         <th>Earning</th>
                         <th>Location</th>
+                        <th>Category</th>
                         <th colspan="6"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><%= @job.date %></td>
-                            <td><%= @job.duration %> hours </td>
+                            <td><%= @job.duration %> hours</td>
                             <td><%= @job.price %> euros</td>
                             <td><%= @job.location %></td>
                             <td><%= @job.category %></td>
@@ -40,6 +41,11 @@
                 <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
                 <h3>Introduction</h3>
                 <p><%= @job.user.introduction %></p>
+                 <td><%= @job.user.categories.each do |category| %>
+                  <%= category.name %>
+                  <%= choose_image_category(category)%>
+                  <% end %>
+                </td>
             </div>
             <div class="reviews col-4">
                 <% if @job.bookings.where(user: current_user).present? %>
