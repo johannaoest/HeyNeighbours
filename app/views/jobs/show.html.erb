@@ -54,6 +54,9 @@
                     <%= link_to "Apply for this job", job_bookings_path(@job), method: :post, class:"btn-orange" %>
                 <% end %>
                 <h1>Reviews container</h1>
+                <%= @job.user.reviews.each do |review| %>
+                    <p><%= review.rating %> - <%= review.comment %></p>
+                <% end %>
             </div>
         </div>
     </div>
