@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'users/:id', to: "users#show", as: "users_show"
   devise_for :users
+  get 'users/:id', to: "users#show", as: "users_show"
   root to: 'pages#home'
 
   resources :jobs do
