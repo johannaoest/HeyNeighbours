@@ -10,8 +10,8 @@
 
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
     <%= link_to "My profile", edit_user_registration_path, class: "dropdown-item" %>
-    <%= link_to "My jobs", jobs_path(my_jobs: true), class: "dropdown-item" %>
-    <%= link_to "My applyments", bookings_path(current_user), class: "dropdown-item" %>
+    <%= link_to "Jobs posted by me", jobs_path(my_jobs: true), class: "dropdown-item" %>
+    <%= link_to "Jobs done by me", bookings_path(current_user), class: "dropdown-item" %>
     <%= link_to "Messages", "#", class: "dropdown-item" %>
 
     <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
