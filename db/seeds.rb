@@ -74,13 +74,32 @@ logistics = Category.create(
 lili = User.new(
   first_name: "Lili",
   last_name: "Vincze",
-  address: "Calle San Lorenzo 20, Madrid, Spain",
   introduction: "Hello everybody, I really enjoy helping out with taking care of animals or doing some gardening jobs. Usually I need help with cleaning or grocery shopping. Feel free to message me!",
   password: "123456",
   email: "lili@vincze.com",
   address: "Madrid, Puerta del angel"
 )
 lili.save!
+
+johanna = User.new(
+  first_name: "Johanna",
+  last_name: "Oesterreicher",
+  address: "Madrid, Chueca",
+  introduction:"Hey! I would love help you with transforming your daily life sustainable! I'm quite good with maths also, so let me know if you need help!",
+  password: "123456",
+  email: "johanna@oesterreicher.com",
+)
+johanna.save!
+
+alen = User.new(
+  first_name: "Alen",
+  last_name: "Esteibar",
+  address: "Madrid, Calle doctor esquerdo 70.",
+  introduction:"Hola hola, I am a spanish gentleman, as my name is also telling you this! I want to help you to learn coding in exchange of buying me tobacco or bringing me water. Hasta la vista, baby!",
+  password: "123456",
+  email: "alen@esteibar.com",
+)
+alen.save!
 
 puts "Created users."
 
@@ -96,6 +115,34 @@ job = Job.new(
   user: lili
 )
 UserCategory.create(user: lili, category: baby)
+job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
+job.save!
+
+file = URI.open('https://images.unsplash.com/photo-1532881733205-1b56eb951e6f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')
+job = Job.new(
+  title: "Just bring me some tobacco",
+  details: "As soon as possible, because I am out. Caquita",
+  location: "Madrid",
+  price: 50,
+  duration: 1,
+  date: "2021. 06. 22.",
+  user: alen
+)
+UserCategory.create(user: alen, category: shop)
+job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
+job.save!
+
+file = URI.open('https://images.unsplash.com/photo-1603726811255-1ae496aeaab9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8d2lmaXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+job = Job.new(
+  title: "Install WiFi at my place",
+  details: "Hallo! I really need somebody to install wifi at my place! Preferably this night! HELP!",
+  location: "Madrid, CHueca",
+  price: 11,
+  duration: 2,
+  date: "2021. 06. 25.",
+  user: johanna
+)
+UserCategory.create(user: johanna, category: technology)
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
 
