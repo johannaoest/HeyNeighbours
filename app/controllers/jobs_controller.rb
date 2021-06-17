@@ -5,7 +5,11 @@ class JobsController < ApplicationController
     if params[:my_jobs]
       @jobs = policy_scope(Job).where(user: current_user).order(created_at: :desc)
     else
-      @jobs = policy_scope(Job).where.not(user: current_user).order(created_at: :desc)
+      if params['filter']
+        @jobs = policy_scope(Job).where.not(user: current_user).near(current_user.address, params['filter']['distance'].to_i).order(created_at: :desc)
+      else
+        @jobs = policy_scope(Job).where.not(user: current_user).order(created_at: :desc)
+      end
     end
 
 
