@@ -35,17 +35,19 @@
     <div class="row">
         <div class="employer-container">
             <div class="avatar-container col-2">
-                <img src= <%= choose_avatar(current_user) %> class="card-job-user avatar-bordered" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src= <%= choose_avatar(current_user) %> class="card-job-user avatar-bordered">
             </div>
             <div class="employer-info col-6">
                 <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
                 <h3>Introduction</h3>
                 <p><%= @job.user.introduction %></p>
-                 <td><%= @job.user.categories.each do |category| %>
-                  <%= category.name %>
-                  <%= choose_image_category(category)%>
-                  <% end %>
-                </td>
+                <div class="employer-categories">
+                    <td><%= @job.user.categories.each do |category| %>
+                        <%= category.name %>
+                        <%= choose_image_category(category)%>
+                        <% end %>
+                    </td>
+                </div>
             </div>
             <div class="reviews col-4">
                 <% if @job.bookings.where(user: current_user).present? %>
@@ -53,11 +55,21 @@
                 <% else %>
                     <%= link_to "Apply for this job", job_bookings_path(@job), method: :post, class:"btn-orange" %>
                 <% end %>
-                <h1>Reviews container</h1>
-
+                <div class="title">
+                    <h1>Reviews</h1>
+                </div>
                 <% @job.user.jobs.each do |job| %>
                     <% job.reviews.each do |review|  %>
-                        <p><%= review.rating %> - <%= review.comment %></p>
+                        <div class="reviewer-details">
+                            <img src= <%= choose_avatar(review.user) %> class="card-job-user avatar-bordered">
+                            <div class="reviewer-name">
+                                <h4><%= review.user.first_name %></h4>
+                                <h4><%= review.rating %> / 5</h4>
+                            </div>
+                            <div class="review">
+                                <p><%= review.comment %></p>
+                            </div>
+                        </div>
                     <% end %>
                 <% end %>
             </div>
