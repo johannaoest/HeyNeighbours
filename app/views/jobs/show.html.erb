@@ -23,7 +23,7 @@
                             <td><%= @job.duration %> hours </td>
                             <td><%= @job.price %> euros</td>
                             <td><%= @job.location %></td>
-                            <td><%= @job.categories %></td>
+                            <td><%= @job.category %></td>
 
                         </tr>
                     </tbody>
@@ -34,7 +34,7 @@
     <div class="row">
         <div class="employer-container">
             <div class="avatar-container col-2">
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-bordered" %>
+                <img src= <%= choose_avatar(current_user) %> class="card-job-user avatar-bordered" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             </div>
             <div class="employer-info col-6">
                 <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
