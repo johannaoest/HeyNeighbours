@@ -74,7 +74,7 @@
         <%= f.input 'distance', input_html: { min: 1, max: 10 }, as: :range, label:false, id:'filter' %>
       </div>
       <div id="value"></div>
-      <%= f.submit %>
+      <%= f.submit 'Find jobs!', class:"btn btn-orange" %>
     <% end %>
   </div>
   <% unless params[:my_jobs].present? %>
