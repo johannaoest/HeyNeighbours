@@ -1,0 +1,9 @@
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <% if user_signed_in? %>
+      <%= render 'shared/logged_in_nav' %>
+    <% else %>
+      <%= render 'shared/logged_out_nav' %>
+    <% end %>
+  </ul>
+</div>
