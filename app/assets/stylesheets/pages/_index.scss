@@ -7,7 +7,7 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 20px rgba(black, $alpha: 0.7);
-  width: 80%;
+  width: 70%;
   height: 75vh;
   margin: auto;
   margin-bottom: 20px;
@@ -27,6 +27,7 @@
   padding: 15px;
   padding-top: 20px;
 }
+
 a {
   color: black;
 }
@@ -38,9 +39,6 @@ a {
   border-radius: 3px;
   transition: transform .2s;
 }
-
-
-
 
 .card-job:hover {
   color: black!important;
@@ -71,7 +69,7 @@ a {
 
 
 .card-job p {
-  font-size: 12px;
+  font-size: 13px;
   opacity: .7;
   margin: 0;
 }
@@ -86,11 +84,9 @@ a {
 
 .card-job-infos .card-job-user {
   position: absolute;
-  right: 16px;
+  right: 10px;
   top: -20px;
   width: 40px;
+  height: 40px;
 }
 
-#card-job-pricing {
-  font-size: 20px;
-}

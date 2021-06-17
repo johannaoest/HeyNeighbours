@@ -1,0 +1,7 @@
+<% unless current_page?(root_path) %>
+ <%= render 'shared/nav_item', path: jobs_path, text: 'Look for a job' %>
+
+  <%= render 'shared/nav_item', path: new_job_path, text: 'Offer a job' %>
+<% end %>
+  <%= render 'shared/nav_item', path: new_user_registration_path, text: 'Sign up' %>
+  <%= render 'shared/nav_item', path: new_user_session_path, text: 'Login' %>
