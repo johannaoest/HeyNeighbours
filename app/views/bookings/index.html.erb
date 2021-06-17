@@ -1,45 +1,55 @@
 <div class="background-container">
-    <h2>Jobs done by me</h2>
-    <% @bookings.each do |booking| %>
-        <div class="card-job-done">
-            <div class="img-done-container">
-                <%= image_tag choose_image(booking.job), class: "img-job-done" %>
-            </div>
-            <div class="job-done-info">
-                <div class="job-title">
-                    <h2><%= booking.job.title %></h2>
-                    <p><%= booking.job.details %></p>
-                </div>
-                <table style="width: 100%", border=1 frame="BELOW" rules="NONE">
-                    <thead>
-                        <tr>
-                        <th>Date</th>
-                        <th>Duration</th>
-                        <th>Earning</th>
-                        <th>Location</th>
-                        <th colspan="6"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><%= booking.job.date %></td>
-                            <td><%= booking.job.duration %> hours </td>
-                            <td><%= booking.job.price %> euros</td>
-                            <td><%= booking.job.location %></td>
-                            <td><%= booking.job.category %></td>
-
-                        </tr>
-                    </tbody>
-                </table>
-            </div>            
-            <div class="job-done-actions">
-                <div class="button">
-                    <%= link_to "Rate", new_booking_review_path(booking), class:"btn-orange" %>
-                </div>
-                <div class="button">
-                    <%= link_to "Profile", users_show_path(booking.job.user), class:"btn-orange" %>
-                </div>
+    <div class="title">
+        <h2>Jobs done by me</h2>
+    </div>
+    <% if @bookings.empty? %>
+        <div class="content-container">
+            <div class="no-job">
+                <h2>You haven't done any job yet!</h2>
             </div>
         </div>
+    <% else %>
+        <% @bookings.each do |booking| %>
+            <div class="card-job-done">
+                <div class="img-done-container">
+                    <%= image_tag choose_image(booking.job), class: "img-job-done" %>
+                </div>
+                <div class="job-done-info">
+                    <div class="job-title">
+                        <h2><%= booking.job.title %></h2>
+                        <p><%= booking.job.details %></p>
+                    </div>
+                    <table style="width: 100%", border=1 frame="BELOW" rules="NONE">
+                        <thead>
+                            <tr>
+                            <th>Date</th>
+                            <th>Duration</th>
+                            <th>Earning</th>
+                            <th>Location</th>
+                            <th colspan="6"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><%= booking.job.date %></td>
+                                <td><%= booking.job.duration %> hours </td>
+                                <td><%= booking.job.price %> euros</td>
+                                <td><%= booking.job.location %></td>
+                                <td><%= booking.job.category %></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>            
+                <div class="job-done-actions">
+                    <div class="button">
+                        <%= link_to "Rate", new_booking_review_path(booking), class:"btn-orange" %>
+                    </div>
+                    <div class="button">
+                        <%= link_to "Profile", users_show_path(booking.job.user), class:"btn-orange" %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
     <% end %>
 </div>
