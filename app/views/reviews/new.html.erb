@@ -1,0 +1,12 @@
+<div class="form-container">
+    <%= simple_form_for [@booking, @review] do |f| %>
+
+      <%= f.input :comment, as: :text %>
+      <%= f.input :rating %>
+
+      <%= f.submit 'Send review', class:'btn-orange' %>
+    <% end %>
+  <div class="link">
+    <%= link_to "Back", :back %>
+  </div>
+</div>

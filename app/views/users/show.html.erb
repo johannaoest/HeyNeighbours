@@ -1,0 +1,7 @@
+<div class="background-container">
+    <h2>User profile page</h2>
+    <h3>Reviews</h3>
+    <% @user.reviews.each do |review| %>
+        <%= review.rating %> <%= review.comment %>
+    <% end %>
+</div>
