@@ -3,9 +3,5 @@
 
   <%= render 'shared/nav_item', path: new_job_path, text: 'Offer a job' %>
 <% end %>
-<li class="nav-item">
-  <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-</li>
-<li class="nav-item">
-  <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-</li>
+  <%= render 'shared/nav_item', path: new_user_registration_path, text: 'Sign up' %>
+  <%= render 'shared/nav_item', path: new_user_session_path, text: 'Login' %>

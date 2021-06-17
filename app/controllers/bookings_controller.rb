@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :desc)
   end
-
+ 
   def destroy
     @booking.destroy
 

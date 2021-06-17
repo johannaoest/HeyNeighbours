@@ -8,6 +8,7 @@
   <img src= <%= choose_avatar(current_user) %> class="card-job-user avatar-bordered" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
 
+
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
     <%= link_to "My profile", edit_user_registration_path, class: "dropdown-item" %>
     <%= link_to "Jobs posted by me", jobs_path(my_jobs: true), class: "dropdown-item" %>
@@ -16,4 +17,6 @@
 
     <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
   </div>
+  <%= render 'shared/avatar_dropdown' %>
+
 </li>
