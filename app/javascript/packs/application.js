@@ -28,6 +28,9 @@ import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { initMapbox } from '../plugins/init_mapbox.js';
+import { filterValue } from '../plugins/init_mapbox.js';
+
+import { initAutocomplete } from '../plugins/init_autocomplete.js';
 
 
 // Internal imports, e.g:
@@ -36,4 +39,6 @@ import { initMapbox } from '../plugins/init_mapbox.js';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initAutocomplete();
+  filterValue();
 })

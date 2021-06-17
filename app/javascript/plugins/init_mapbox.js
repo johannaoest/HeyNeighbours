@@ -26,6 +26,22 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
 };
 
+const mapFilterBar = () => {
+  const filterBar = document.getElementById('filter');
+  filterBar.addEventListener('change', (event) => {
+    document.getElementById["filter-form"].submit();
+  })
+}
+
+const filterValue = () => {
+  const input = document.querySelector('#filter_distance');
+  const value = document.getElementById('value');
+  console.log('Hola')
+  input.addEventListener('input', () => {
+    value.innerHTML = input.value;
+  })
+}
+
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
   if (mapElement) {
@@ -33,9 +49,11 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl }));
+    map.addControl(new MapboxGeocoder({ 
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl
+    }));
   }
 };
 
-export { initMapbox };
+export { initMapbox, filterValue };
