@@ -34,10 +34,10 @@
             </div>            
             <div class="job-done-actions">
                 <div class="button">
-                    <%= link_to "Rate", "#", class:"btn-orange" %>
+                    <%= link_to "Rate", new_booking_review_path(booking), class:"btn-orange" %>
                 </div>
                 <div class="button">
-                    <%= link_to "Profile", "#", class:"btn-orange" %>
+                    <%= link_to "Profile", users_show_path(booking.job.user), class:"btn-orange" %>
                 </div>
             </div>
         </div>
