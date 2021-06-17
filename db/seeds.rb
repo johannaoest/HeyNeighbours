@@ -7,7 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 UserCategory.destroy_all
 Category.destroy_all
+Review.destroy_all
+puts "Deleting all reviews..."
 Booking.destroy_all
+puts "Deleting all bookings..."
 Job.destroy_all
 puts "Deleting all jobs..."
 User.destroy_all
@@ -69,7 +72,8 @@ lili = User.new(
   last_name: "Vincze",
   introduction: "Hello everybody, I really enjoy helping out with taking care of animals or doing some gardening jobs. Usually I need help with cleaning or grocery shopping. Feel free to message me!",
   password: "123456",
-  email: "lili@vincze.com"
+  email: "lili@vincze.com",
+  address: "Madrid, Puerta del angel"
 )
 lili.save!
 
