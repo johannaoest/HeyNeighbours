@@ -11,8 +11,20 @@
   height: 75vh;
   margin: auto;
   margin-bottom: 20px;
-
 }
+
+.title {
+  width: 100%;
+  border-bottom: 1px white solid;
+  margin-bottom: 20px;
+}
+
+.content-container {
+  display: flex;
+  height: 90%;
+  width: 100%;
+}
+
 .background-container {
   overflow: scroll;
   overflow-x: hidden;
@@ -88,5 +100,9 @@ a {
   top: -20px;
   width: 40px;
   height: 40px;
+}
+
+.no-job {
+  margin: auto;
 }
 
