@@ -42,11 +42,15 @@
                     </table>
                 </div>            
                 <div class="job-done-actions">
-                    <div class="button">
-                        <%= link_to "Rate", new_booking_review_path(booking), class:"btn-orange" %>
+                    <div class="btn-orange mb-2 ml-3 text-center">
+                        <%= link_to new_booking_review_path(booking) do %>
+                            Rate <%= booking.job.user.first_name %>
+                        <% end %>
                     </div>
-                    <div class="button">
-                        <%= link_to "Profile", users_show_path(booking.job.user), class:"btn-orange" %>
+                    <div class="btn-orange ml-3 text-center">
+                        <%= link_to new_booking_review_path(booking) do %>
+                            <%= booking.job.user.first_name %>'s profile
+                        <% end %>
                     </div>
                 </div>
             </div>

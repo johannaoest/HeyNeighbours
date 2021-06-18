@@ -30,6 +30,13 @@
                     </tbody>
                 </table>
             </div>
+            <div class="apply">
+                <% if @job.bookings.where(user: current_user).present? %>
+                        <h2>You applied!</h2>
+                <% else %>
+                        <%= link_to "Apply for this job", job_bookings_path(@job), method: :post, class:"btn-orange" %>
+                <% end %>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -50,11 +57,6 @@
                 </div>
             </div>
             <div class="reviews col-4">
-                <% if @job.bookings.where(user: current_user).present? %>
-                    <h2>You booked!</h2>
-                <% else %>
-                    <%= link_to "Apply for this job", job_bookings_path(@job), method: :post, class:"btn-orange" %>
-                <% end %>
                 <div class="title">
                     <h1>Reviews</h1>
                 </div>
