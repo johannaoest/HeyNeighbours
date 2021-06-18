@@ -42,7 +42,7 @@ class JobsController < ApplicationController
 
   def destroy
     @job.destroy
-    redirect_to jobs_path
+    redirect_to jobs_path(my_jobs: true)
   end
 
   def update
@@ -64,6 +64,6 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :details, :location, :date, :duration, :price, :rating, :category)
+    params.require(:job).permit(:title, :details, :location, :date, :duration, :price, :rating, :category, :photo)
   end
 end
