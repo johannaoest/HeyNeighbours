@@ -32,7 +32,7 @@ const filterValue = () => {
   const value = document.getElementById('value');
   value.innerHTML = input.value;
   input.addEventListener('input', () => {
-    value.innerHTML = input.value;
+    value.innerHTML = input.value + ' km';
   })
 }
 

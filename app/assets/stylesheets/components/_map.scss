@@ -31,5 +31,14 @@
   position: absolute;
   z-index: 3;
   top: 10px;
-  left: 110px;
+  left: 150px;
+}
+
+#value {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: -3px;
+  margin-bottom: 7px;
+  
 }
