@@ -1,4 +1,7 @@
 <div class="background-container">
+    <div class="title">
+      <h2>Available jobs near you</h2>
+    </div>
   <div class="container">
       <section class="section row">
    
@@ -63,18 +66,19 @@
 
 
 
+<% unless params[:my_jobs].present? %>
 
-<div class="map-container">
-  <div class="filter">
-    <%= simple_form_for :filter, url: jobs_path, method: :get, id:"filter-form" do |f| %>
-      <div class="form-check-index">
-        <%= f.input 'distance', input_html: { min: 1, max: 10 }, as: :range, label:false, id:'filter' %>
-      </div>
-      <div id="value"></div>
-      <%= f.submit %>
-    <% end %>
-  </div>
-  <% unless params[:my_jobs].present? %>
+  <div class="map-container">
+    <div class="filter">
+      <%= simple_form_for :filter, url: jobs_path, method: :get, id:"filter-form" do |f| %>
+        <div class="form-check-index">
+          <%= f.input 'distance', input_html: { min: 1, max: 10 }, as: :range, label:false, id:'filter' %>
+        </div>
+        <div id="value"></div>
+        <%= f.submit 'Find jobs!', class:"btn btn-orange" %>
+      <% end %>
+    </div>
+
     <div id="map"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">

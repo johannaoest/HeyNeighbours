@@ -26,17 +26,11 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
 };
 
-const mapFilterBar = () => {
-  const filterBar = document.getElementById('filter');
-  filterBar.addEventListener('change', (event) => {
-    document.getElementById["filter-form"].submit();
-  })
-}
 
 const filterValue = () => {
   const input = document.querySelector('#filter_distance');
   const value = document.getElementById('value');
-  console.log('Hola')
+  value.innerHTML = input.value;
   input.addEventListener('input', () => {
     value.innerHTML = input.value;
   })
