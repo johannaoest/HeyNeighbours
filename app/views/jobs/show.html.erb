@@ -35,7 +35,7 @@
     <div class="row">
         <div class="employer-container">
             <div class="avatar-container col-2">
-                <img src= <%= choose_avatar(current_user) %> class="card-job-user avatar-bordered">
+                <img src= <%= choose_avatar(@job.user) %> class="card-job-user avatar-bordered">
             </div>
             <div class="employer-info col-6">
                 <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
