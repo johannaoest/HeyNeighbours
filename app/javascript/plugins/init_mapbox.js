@@ -31,8 +31,12 @@ const filterValue = () => {
   const input = document.querySelector('#filter_distance');
   const value = document.getElementById('value');
   const distance = document.getElementById('map').dataset.distance
-  input.value = distance
-  value.innerHTML = distance + ' km';
+  if (distance) {
+    input.value = distance
+    value.innerHTML = distance + ' km';
+  } else {
+    value.innerHTML = input.value + ' km';
+  }
   input.addEventListener('input', () => {
     value.innerHTML = input.value + ' km';
   })

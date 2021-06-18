@@ -30,12 +30,23 @@
                     </tbody>
                 </table>
             </div>
+            <div class="apply">
+                <% if @job.bookings.where(user: current_user).present? %>
+                        <h2>You applied!</h2>
+                <% else %>
+                        <%= link_to "Apply for this job", job_bookings_path(@job), method: :post, class:"btn-orange" %>
+                <% end %>
+            </div>
         </div>
     </div>
     <div class="row">
         <div class="employer-container">
             <div class="avatar-container col-2">
+
                 <img src= <%= choose_avatar(current_user) %> class="card-job-user avatar-bordered" >
+
+                <img src= <%= choose_avatar(@job.user) %> class="card-job-user avatar-bordered">
+              
             </div>
             <div class="employer-info col-6">
                 <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
@@ -63,11 +74,6 @@
                   </div>
             </div>
             <div class="reviews col-4">
-                <% if @job.bookings.where(user: current_user).present? %>
-                    <h2>You booked!</h2>
-                <% else %>
-                    <%= link_to "Apply for this job", job_bookings_path(@job), method: :post, class:"btn-orange" %>
-                <% end %>
                 <div class="title">
                     <h1>Reviews</h1>
                 </div>
