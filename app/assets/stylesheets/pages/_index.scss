@@ -7,7 +7,7 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 20px rgba(black, $alpha: 0.7);
-  width: 70%;
+  width: 75%;
   height: 75vh;
   margin: auto;
   margin-bottom: 20px;
@@ -41,13 +41,8 @@
   padding-top: 20px;
 }
 
-// a {
-//   color: black;
-// }
-
 .card-job {
   overflow: hidden;
-  width: 330px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 3px;
@@ -64,7 +59,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  height: 205px;
+  height: 175px;
   width: 100%;
   background-size: cover;
   background-position: center;
