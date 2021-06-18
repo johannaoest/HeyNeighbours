@@ -30,7 +30,9 @@ const fitMapToMarkers = (map, markers) => {
 const filterValue = () => {
   const input = document.querySelector('#filter_distance');
   const value = document.getElementById('value');
-  value.innerHTML = input.value;
+  const distance = document.getElementById('map').dataset.distance
+  input.value = distance
+  value.innerHTML = distance + ' km';
   input.addEventListener('input', () => {
     value.innerHTML = input.value + ' km';
   })
