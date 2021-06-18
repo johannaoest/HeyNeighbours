@@ -42,7 +42,7 @@ education = Category.create(
   education.save
 
 grocery = Category.create(
-  name: "Food")
+  name: "Grocery")
   file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1624007958/food.jpg')
   grocery.photo.attach(io:file, filename: 'food.jpg', content_type: 'image/jpg')
   grocery.save
@@ -54,13 +54,13 @@ gardening = Category.create(
   gardening.save
 
 home = Category.create(
-  name: "Home")
+  name: "Housekeeping")
   file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623924322/home.png')
   home.photo.attach(io:file, filename: 'home.png', content_type: 'image/png')
   home.save
 
 technology = Category.create(
-  name: "IT")
+  name: "Technology")
   file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623924410/technology.jpg')
   technology.photo.attach(io:file, filename: 'technology.jpg', content_type: 'image/jpg')
   technology.save
@@ -120,6 +120,7 @@ job = Job.new(
   duration: 1,
   date: "2021. 06. 17.",
   user: lili
+
 )
 UserCategory.create(user: lili, category: baby)
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')

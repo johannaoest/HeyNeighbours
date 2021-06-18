@@ -36,7 +36,7 @@
 }
 
 .avatar-container {
-    height: 40px;
+    height:80px;
 }
 
 .employer-info {
@@ -66,5 +66,17 @@
     margin-left: 10px;
 }
 
+.icons {
+    justify-content: space-between;
 
+}
+
+.icons-name {
+    justify-content: center;
+    padding-top: 15px;
+
+}
+.employer-categories {
+    padding-top: 25px;
+}
 

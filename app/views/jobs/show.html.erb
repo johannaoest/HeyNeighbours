@@ -39,20 +39,28 @@
             </div>
             <div class="employer-info col-6">
                 <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
+            <div class="title">
                 <h3>Introduction</h3>
+            </div>
                 <p><%= @job.user.introduction %></p>
-                <div class="employer-categories ">
-                    <div class="d-flex row" >
-                      <td><% @job.user.categories.each do |category| %>
-                          <div class="avatar-container col-4">
-                            <h8> <%= category.name %></h8>
-
-                               <img src= <%= choose_image_category(category) %> class="card-job-user avatar-bordered" >
-                          </div>
-                          <% end %>
-                      </div>
-                    </td>
-                </div>
+            <div class="title">
+                <h3>My categories</h3>
+            </div>
+                  <div class="employer-categories ">
+                      <div class="d-flex row" >
+                        <td><% @job.user.categories.each do |category| %>
+                            <div class="icons d-flex col-6 row" >
+                              <div class ="icons-name">
+                              <h8> <%= category.name %></h8>
+                              </div>
+                              <div class="avatar-container col-6 row">
+                                 <img src= <%= choose_image_category(category) %> class="card-job-user avatar-bordered" >
+                              </div>
+                            </div>
+                            <% end %>
+                        </div>
+                      </td>
+                  </div>
             </div>
             <div class="reviews col-4">
                 <% if @job.bookings.where(user: current_user).present? %>
