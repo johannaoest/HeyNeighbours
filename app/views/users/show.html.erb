@@ -19,7 +19,22 @@
             <div class="title">
                 <h2>My categories</h2>
             </div>
-            <p>some icons</p>
+                <div class="employer-categories ">
+                      <div class="d-flex row" >
+                        <td><% @user.categories.each do |category| %>
+                            <div class="icons d-flex col-6 row" >
+                              <div class ="icons-name">
+                              <h8> <%= category.name %></h8>
+
+                              </div>
+                              <div class="avatar-container col-6 row">
+                                 <img src= <%= choose_image_category(category) %> class="card-job-user avatar-bordered" >
+                              </div>
+                            </div>
+                            <% end %>
+                        </div>
+                      </td>
+                  </div>
         </div>
         <div class="col-6">
             <div class="title">
