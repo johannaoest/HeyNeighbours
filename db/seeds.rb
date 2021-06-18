@@ -88,8 +88,9 @@ lili = User.new(
 )
 lili.save!
 UserCategory.create(user: lili, category: baby)
-UserCategory.create(user: lili, category: shop)
+UserCategory.create(user: lili, category: grocery)
 UserCategory.create(user: lili, category: gardening)
+UserCategory.create(user: lili, category: animal)
 
 johanna = User.new(
   first_name: "Johanna",
@@ -100,9 +101,10 @@ johanna = User.new(
   email: "johanna@oesterreicher.com",
 )
 johanna.save!
-UserCategory.create(user: johanna, category: baby)
-UserCategory.create(user: johanna, category: shop)
-UserCategory.create(user: johanna, category: gardening)
+UserCategory.create(user: johanna, category: home)
+UserCategory.create(user: johanna, category: logistics)
+UserCategory.create(user: johanna, category: education)
+
 
 alen = User.new(
   first_name: "Alen",
@@ -124,7 +126,8 @@ job = Job.new(
   price: 8,
   duration: 1,
   date: "2021. 06. 17.",
-  user: lili
+  user: lili,
+  category: animal.name
 
 )
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
@@ -138,7 +141,8 @@ job = Job.new(
   price: 50,
   duration: 1,
   date: "2021. 06. 22.",
-  user: alen
+  user: alen,
+  category: grocery.name
 )
 
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
@@ -152,7 +156,8 @@ job = Job.new(
   price: 11,
   duration: 2,
   date: "2021. 06. 25.",
-  user: johanna
+  user: johanna,
+  category: technology.name
 )
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
@@ -165,7 +170,8 @@ job = Job.new(
   price: 22,
   duration: 3,
   date: "2021. 06. 19.",
-  user: lili
+  user: lili,
+  category: animal.name
 )
 
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
@@ -179,7 +185,8 @@ job = Job.new(
   price: 11,
   duration: 2,
   date: "2021. 06. 16.",
-  user: lili
+  user: lili,
+  category: grocery.name
 )
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
@@ -192,7 +199,8 @@ job = Job.new(
   price: 30,
   duration: 5,
   date: "2021. 06. 16.",
-  user: lili
+  user: lili,
+  category: gardening.name
 )
 
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
@@ -206,7 +214,8 @@ job = Job.new(
   price: 24,
   duration: 3,
   date: "2021. 06. 16.",
-  user: lili
+  user: lili,
+  category: home.name
 )
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
@@ -219,7 +228,8 @@ job = Job.new(
   price: 8,
   duration: 1,
   date: "2021. 06. 19.",
-  user: lili
+  user: lili,
+  category: home.name
 )
 
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
