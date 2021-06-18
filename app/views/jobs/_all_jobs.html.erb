@@ -1,0 +1,74 @@
+<div class="background-container">
+    <div class="title">
+      <h2>Available jobs near you</h2>
+    </div>
+  <div class="container">
+      <section class="section row">
+   
+        <% cards = 0 %>
+
+
+        <% @jobs.each_with_index do |job, index| %>
+          <% unless index == 0 %>
+            <% if index % 6 == 0 %>
+
+              </section>
+              <section class="section row">
+
+            <% end %>
+          <% end %>
+
+          <div class="col-6 col-sm-4">
+            <%= link_to job_path(job), class:"job-link" do %>
+              <div class="card-job">
+                <div class="card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= choose_photo(job) %>)">
+                  <h2><%= job.title %></h2>
+                </div>
+                <div class="card-job-infos">
+                  <div class="d-flex justify-content-between">
+                    <div class="small-info col-4 text-center m-auto border-right h-100">
+                      <p><%= job.date %></p>
+
+                    </div>
+
+                    <div class="small-info col-4 text-center m-auto border-right h-100">
+                      <p><%= job.duration %> min</p>
+                    </div>
+
+                    <div class="small-info col-4 text-center m-auto h-100">
+                      <p><%= job.price %> €</p>
+                    </div>
+                  </div>
+                  
+                  <% if job.user.avatar.attached? %>
+                    <%= cl_image_tag job.user.avatar.key, class:"card-job-user avatar-bordered"%>
+                  <% else%>
+                    <%= image_tag 'profile.png', class:"card-job-user avatar-bordered"%>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        </section>
+      </div>
+    </div>
+  </div>
+
+<div class="map-container">
+  <div class="filter">
+    <%= simple_form_for :filter, url: jobs_path, method: :get, id:"filter-form" do |f| %>
+      <div class="form-check-index">
+        <%= f.input 'distance', input_html: { min: 1, max: 10 }, as: :range, label:false, id:'filter' %>
+      </div>
+      <div id="value"></div>
+      <%= f.submit 'Find jobs!', class:"btn btn-orange" %>
+    <% end %>
+  </div>
+
+  <div id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-distance="<%= @distance %>">
+  </div>
+</div>
