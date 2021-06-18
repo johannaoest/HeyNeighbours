@@ -26,10 +26,13 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
 };
 
+
 const filterValue = () => {
   const input = document.querySelector('#filter_distance');
   const value = document.getElementById('value');
-  console.log('Hola')
+  const distance = document.getElementById('map').dataset.distance
+  input.value = distance
+  value.innerHTML = distance + ' km';
   input.addEventListener('input', () => {
     value.innerHTML = input.value + ' km';
   })

@@ -6,15 +6,14 @@ class JobsController < ApplicationController
       @jobs = policy_scope(Job).where(user: current_user).order(created_at: :desc)
     else
       if params['filter']
+        @distance = params['filter']['distance']
         @jobs = policy_scope(Job).where.not(user: current_user).near(current_user.address, params['filter']['distance'].to_i).order(created_at: :desc)
       else
         @jobs = policy_scope(Job).where.not(user: current_user).order(created_at: :desc)
       end
     end
 
-
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-    # @jobs = Job.where.not(latitude: nil, longitude: nil)
+    
     @markers = @jobs.geocoded.map do |job|
       {
         lat: job.latitude,
