@@ -35,17 +35,22 @@
     <div class="row">
         <div class="employer-container">
             <div class="avatar-container col-2">
-                <img src= <%= choose_avatar(current_user) %> class="card-job-user avatar-bordered">
+                <img src= <%= choose_avatar(current_user) %> class="card-job-user avatar-bordered" >
             </div>
             <div class="employer-info col-6">
                 <h2><%= @job.user.first_name %> <%= @job.user.last_name %></h2>
                 <h3>Introduction</h3>
                 <p><%= @job.user.introduction %></p>
-                <div class="employer-categories">
-                    <td><%= @job.user.categories.each do |category| %>
-                        <%= category.name %>
-                        <%= choose_image_category(category)%>
-                        <% end %>
+                <div class="employer-categories ">
+                    <div class="d-flex row" >
+                      <td><% @job.user.categories.each do |category| %>
+                          <div class="avatar-container col-4">
+                            <h8> <%= category.name %></h8>
+
+                               <img src= <%= choose_image_category(category) %> class="card-job-user avatar-bordered" >
+                          </div>
+                          <% end %>
+                      </div>
                     </td>
                 </div>
             </div>
