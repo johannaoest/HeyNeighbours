@@ -25,6 +25,9 @@ require("channels")
 // External imports
 import "bootstrap";
 
+import { initChatroomCable } from '../channels/chatroom_channel';
+
+
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { initMapbox } from '../plugins/init_mapbox.js';
@@ -36,9 +39,12 @@ import { initAutocomplete } from '../plugins/init_autocomplete.js';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
-
+const job_index = document.querySelector(".jobs-index")
 document.addEventListener('turbolinks:load', () => {
-  initMapbox();
   initAutocomplete();
-  filterValue();
+  initChatroomCable();
+    if (job_index) {
+     initMapbox();
+     filterValue();
+}
 })
