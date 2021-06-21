@@ -25,6 +25,9 @@ require("channels")
 // External imports
 import "bootstrap";
 
+import { initChatroomCable } from '../channels/chatroom_channel';
+
+
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { initMapbox } from '../plugins/init_mapbox.js';
@@ -41,14 +44,15 @@ import { initStarRating } from '../plugins/init_star_rating';
 // import { initSelect2 } from '../components/init_select2';
 
 
-initStarRating();
-
+const job_index = document.querySelector(".jobs-index")
 document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
-  filterValue();
-  initMapbox();
-})
-
+  initChatroomCable();
+  initStarRating();
+    if (job_index) {
+     initMapbox();
+     filterValue();
+}
 
 const mapButton = document.getElementById("map-btn");
 const map = document.querySelector('#map-hide');

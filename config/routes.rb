@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   resources :bookings, except: %i[new create] do
     resources :reviews, only: %i[new create]
   end
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
 end
