@@ -56,7 +56,6 @@ mapButton.addEventListener("click", (event) => {
   event.preventDefault();
   map.classList.toggle("open-map");
   map.classList.toggle("closed-map");
-  console.log(mapButton)
   if (mapButton.innerText == "Open map") {
     mapButton.innerText = "Close map";
   } else {
