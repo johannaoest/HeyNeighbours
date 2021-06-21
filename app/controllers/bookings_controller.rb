@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show destroy]
+  before_action :set_booking, only: %i[show destroy confirmation]
   def show
   end
 
@@ -8,9 +8,12 @@ class BookingsController < ApplicationController
   end
  
   def destroy
+
+    authorize @booking
+    @job = @booking.job
     @booking.destroy
 
-    redirect_to bookings_path
+    redirect_to applyments_index_path(@job)
   end
 
   def new
@@ -27,6 +30,16 @@ class BookingsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def applyments
+    @job = Job.find(params[:job_id])
+    @bookings = Booking.where(job: @job)
+    authorize @job
+  end
+
+  def confirmation
+    authorize @booking
   end
 
   private

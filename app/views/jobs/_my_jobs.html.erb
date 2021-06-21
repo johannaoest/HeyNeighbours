@@ -48,6 +48,9 @@
                     <div class="button">
                         <%= link_to 'Destroy',job, method: :delete, data: { confirm: 'Are you sure you want to delete this?'}, class:"btn-orange" %>
                     </div>
+                    <div class="button">
+                        <%= link_to 'Applyments', applyments_index_path(job), class:"btn-orange" %>
+                    </div>
                 </div>
             </div>
         <% end %>
