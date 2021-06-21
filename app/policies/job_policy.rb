@@ -22,6 +22,11 @@ class JobPolicy < ApplicationPolicy
     user_is_owner_or_admin?
   end
 
+
+  def applyments?
+    true
+  end
+
   private
 
   def user_is_owner_or_admin?

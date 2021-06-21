@@ -19,7 +19,11 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user_is_owner_or_admin?
+    user == record.job.user || user.admin
+  end
+
+  def confirmation?
+    true
   end
 
   private

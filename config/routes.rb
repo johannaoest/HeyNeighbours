@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations/registrations"}
 
   get 'users/:id', to: "users#show", as: "users_show"
+  get 'applyments/:job_id', to: "bookings#applyments", as: "applyments_index"
+  get 'confirmation/:id', to: "bookings#confirmation", as: "booking_confirmation"
   root to: 'pages#home'
 
   resources :jobs do
