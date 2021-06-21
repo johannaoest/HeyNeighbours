@@ -55,6 +55,7 @@ const initMapbox = () => {
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl
     }));
+    map.resize();
   }
 };
 
