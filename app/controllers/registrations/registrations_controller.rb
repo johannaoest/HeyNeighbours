@@ -12,10 +12,11 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    raise
     resource.save
+
     yield resource if block_given?
     if resource.persisted?
+      build_categories(params)
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
@@ -39,7 +40,24 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
+    self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+    prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
+
+    resource_updated = update_resource(resource, account_update_params)
+    yield resource if block_given?
+    if resource_updated
+      clean_categories
+      build_categories(params)
+
+      set_flash_message_for_update(resource, prev_unconfirmed_email)
+      bypass_sign_in resource, scope: resource_name if sign_in_after_change_password?
+
+      respond_with resource, location: after_update_path_for(resource)
+    else
+      clean_up_passwords resource
+      set_minimum_password_length
+      respond_with resource
+    end
   end
 
   # DELETE /resource
@@ -58,6 +76,22 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
   end
 
   protected
+
+  #Building UserCategories
+
+  def build_categories(params)
+    category_ids = params[:user][:category_ids]
+    category_ids.each do |id|
+        category = Category.find(id)
+        UserCategory.create(user: resource, category: category)
+    end
+  end
+
+  # Clean UserCategories to update
+
+  def clean_categories
+    UserCategory.where(user: current_user).destroy_all
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
