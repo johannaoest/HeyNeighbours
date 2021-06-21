@@ -22,6 +22,9 @@
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :avatar, as: :file %>
 
+    <%= f.association :categories, as: :check_boxes,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item'  %>
   </div>
 
     <div class="form-actions">
