@@ -25,20 +25,51 @@ require("channels")
 // External imports
 import "bootstrap";
 
+import { initChatroomCable } from '../channels/chatroom_channel';
+
+
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { initMapbox } from '../plugins/init_mapbox.js';
 import { filterValue } from '../plugins/init_mapbox.js';
 
+
 import { initAutocomplete } from '../plugins/init_autocomplete.js';
+import { initStarRating } from '../plugins/init_star_rating';
+
+
 
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 
+const job_index = document.querySelector(".jobs-index")
 document.addEventListener('turbolinks:load', () => {
-  initMapbox();
   initAutocomplete();
-  filterValue();
-})
+  initChatroomCable();
+  initStarRating();
+    if (job_index) {
+     initMapbox();
+     filterValue();
+
+
+const mapButton = document.getElementById("map-btn");
+const map = document.querySelector('#map-hide');
+mapButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  map.classList.toggle("open-map");
+  map.classList.toggle("closed-map");
+  if (mapButton.innerText == "Open map") {
+    mapButton.innerText = "Close map";
+  } else {
+    mapButton.innterText = "Open map";
+  };
+
+});
+
+map.on('idle', function(){
+  map.resize();
+});
+}
+});
