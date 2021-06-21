@@ -30,18 +30,25 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox.js';
 import { filterValue } from '../plugins/init_mapbox.js';
 
+
 import { initAutocomplete } from '../plugins/init_autocomplete.js';
+import { initStarRating } from '../plugins/init_star_rating';
+
+
 
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 
+initStarRating();
+
 document.addEventListener('turbolinks:load', () => {
-  initMapbox();
   initAutocomplete();
   filterValue();
+  initMapbox();
 })
+
 
 const mapButton = document.getElementById("map-btn");
 const map = document.querySelector('#map-hide');
@@ -61,3 +68,4 @@ mapButton.addEventListener("click", (event) => {
 map.on('idle', function(){
   map.resize();
 });
+

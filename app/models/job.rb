@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
 
   validates :title, presence: true
@@ -15,6 +15,6 @@ class Job < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
 
   def self.category
-    ["Please choose one", "Animal care/Petsitting", "Architecture/Construction", "Baby/Child care", "Education/Training", "Food /Grocery Shopping", "Home/Gardening", "Information Technology", "Production/Manufacturing", "Distribution/Logistics", "Others"]
+    ["Please choose one", "Animal Care", "Child Care", "Construction", "Education", "Grocery", "Gardening", "Housekeeping", "Technology", "Logistics", "Manufacturing", "Others"]
   end
 end

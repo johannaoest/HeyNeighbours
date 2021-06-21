@@ -2,7 +2,7 @@
     <%= simple_form_for [@booking, @review] do |f| %>
 
       <%= f.input :comment, as: :text %>
-      <%= f.input :rating %>
+      <%= f.input :rating, collection: 1..5 %>
 
       <%= f.submit 'Send review', class:'btn-orange' %>
     <% end %>

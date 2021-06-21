@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :jobs
   has_many :reviews
-  has_many :user_categories
+  has_many :user_categories, dependent: :destroy
   has_many :categories, through: :user_categories
 
   devise :database_authenticatable, :registerable,
