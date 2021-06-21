@@ -1,5 +1,5 @@
 .mapboxgl-popup {
-  max-width: 200px;
+  max-width: 400px;
 }
 
 .mapboxgl-popup-content {
@@ -8,14 +8,43 @@
 }
 
 #map {
-  width: 60%;
   box-shadow: 2px 2px 3px black;
-  height: 100%;
+  height: 75vh;
+  width: 700px;
+}
+
+.mapboxgl-map {
+  overflow: visible !important;
+}
+
+#map-btn {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  z-index: 88888888888;
+}
+
+.map-position {
+  height: 68vh;
+  margin-top: -27px;
+  width: 400px;
+  position: relative;
+  left: 0px;
+}
+
+.open-map {
+  margin-left: 0px;
+}
+
+.closed-map {
+  margin-left: -705px;
+}
+
+#map-hide {
+  transition: ease 1s all;
 }
 
 .map-container {
-  height: 400px;
-  display: flex;
   justify-content: center;
   border-radius: 5px;
   margin-bottom: 25px;
@@ -31,7 +60,9 @@
   position: absolute;
   z-index: 3;
   top: 10px;
+  right: 10px;
   left: 165px;
+
 }
 
 #value {
@@ -40,5 +71,7 @@
   justify-content: center;
   margin-top: -3px;
   margin-bottom: 7px;
-
+}
+.mapboxgl-canvas-container {
+  width: 700px;
 }

@@ -1,6 +1,10 @@
 // Import page-specific CSS files here.
 @import "home";
 
+.big-container {
+  display: flex;
+}
+
 .background-container {
   background-color: rgba($color: #1b2d4221, $alpha: 0.75);
   color: white;
