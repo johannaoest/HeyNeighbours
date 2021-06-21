@@ -21,7 +21,7 @@ animal = Category.create(
   name: "Animal Care")
   file = URI.open('https://res.cloudinary.com/dhcndnfmu/image/upload/v1623924305/animal.jpg')
   animal.photo.attach(io:file, filename: 'animal.jpg', content_type: 'image/jpg')
-  animal.save
+  animal.save!
 
 architecture = Category.create(
   name:  "Construction")
@@ -157,7 +157,7 @@ job = Job.new(
   duration: 2,
   date: "2021. 06. 25.",
   user: johanna,
-  category: technology.name
+  category: animal.name
 )
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
@@ -171,7 +171,7 @@ job = Job.new(
   duration: 3,
   date: "2021. 06. 19.",
   user: lili,
-  category: animal.name
+  category: technology.name
 )
 
 job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
