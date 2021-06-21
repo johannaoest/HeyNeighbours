@@ -52,7 +52,7 @@ document.addEventListener('turbolinks:load', () => {
     if (job_index) {
      initMapbox();
      filterValue();
-}
+
 
 const mapButton = document.getElementById("map-btn");
 const map = document.querySelector('#map-hide');
@@ -65,10 +65,11 @@ mapButton.addEventListener("click", (event) => {
   } else {
     mapButton.innterText = "Open map";
   };
-  
+
 });
 
 map.on('idle', function(){
   map.resize();
 });
-
+}
+});
