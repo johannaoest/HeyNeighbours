@@ -6,7 +6,7 @@
         <%= f.input :location %>
         <%= f.input :date %>
         <%= f.input :duration %>
-        <%= f.input :category, :collection=>Job.category, include_blank: false, include_hidden: false %>
+        <%= f.input :category, :collection=>Job.category, value: :name, include_blank: false, include_hidden: false %>
         <%= f.input :photo, as: :file %>
 
       <%= f.submit 'Offer your job', class:'btn-orange' %>
