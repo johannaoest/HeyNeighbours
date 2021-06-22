@@ -6,9 +6,11 @@
     font-size: 25px;
     margin: auto;
     border-radius: 4px;
+    text-shadow: rgb(53, 53, 53) 1px 1px;
 }
 
 .btn-orange:hover, .btn-orange:hover a {
     border-radius: 10px;
     color: black;
+    text-shadow: none;
 }

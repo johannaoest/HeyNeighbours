@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HeyNeighbours</title>
+    <title>Hey!Neighbours - Find & offer small jobs in your neighbourhood!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag %>
 
     <%= stylesheet_pack_tag 'application' %>
 
@@ -26,7 +27,9 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
-
-    <%= yield %>
+    <div class="page-container">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>
