@@ -59,7 +59,7 @@ mapButton.addEventListener("click", (event) => {
   if (mapButton.innerText == "Open map") {
     mapButton.innerText = "Close map";
   } else {
-    mapButton.innterText = "Open map";
+    mapButton.innerText = "Open map";
   };
   
 });

@@ -4,7 +4,7 @@
         <%= f.input :details, as: :text %>
         <%= f.input :price %>
         <%= f.input :location %>
-        <%= f.input :date %>
+        <%= f.input :date, as: :date, html5: true %>
         <%= f.input :duration %>
         <%= f.input :category, :collection=>Job.category, value: :name, include_blank: false, include_hidden: false %>
         <%= f.input :photo, as: :file %>
