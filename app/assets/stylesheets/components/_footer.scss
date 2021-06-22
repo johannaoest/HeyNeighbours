@@ -16,6 +16,12 @@
   margin: auto;
   justify-content: center;
   text-align: center;
+  h2 {
+    color: $orange;
+  }
+  p {
+    color: white;
+  }  
 }
 
 .footer-bottom {
@@ -26,14 +32,6 @@
   padding-top: 10px;
 }
 
-
-h2 {
-  color: $orange;
-}
-
-p {
-  color: white;
-}
 
 .footer-links {
   display: flex;
