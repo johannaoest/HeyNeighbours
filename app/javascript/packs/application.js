@@ -36,17 +36,18 @@ import { initStarRating } from '../plugins/init_star_rating';
 
 
 
-
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 
-initStarRating();
+
 
 document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
-  filterValue();
+  // filterValue();
   initMapbox();
+  initStarRating();
+
 })
 
 
@@ -62,7 +63,7 @@ mapButton.addEventListener("click", (event) => {
   } else {
     mapButton.innterText = "Open map";
   };
-  
+
 });
 
 map.on('idle', function(){

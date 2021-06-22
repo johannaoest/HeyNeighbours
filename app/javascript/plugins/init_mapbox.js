@@ -3,11 +3,13 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 const buildMap = (mapElement) => {
+
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10'
   });
+
 };
 
 console.log("test 2")
@@ -30,18 +32,19 @@ const fitMapToMarkers = (map, markers) => {
 
 
 const filterValue = () => {
-  const input = document.querySelector('#filter_distance');
-  const value = document.getElementById('value');
-  const distance = document.getElementById('map').dataset.distance
-  if (distance) {
-    input.value = distance
-    value.innerHTML = distance + ' km';
-  } else {
-    value.innerHTML = input.value + ' km';
+  if (mapElement) {  const input = document.querySelector('#filter_distance');
+    const value = document.getElementById('value');
+    const distance = document.getElementById('map').dataset.distance
+    if (distance) {
+      input.value = distance
+      value.innerHTML = distance + ' km';
+    } else {
+      value.innerHTML = input.value + ' km';
+    }
+    input.addEventListener('input', () => {
+      value.innerHTML = input.value + ' km';
+    })
   }
-  input.addEventListener('input', () => {
-    value.innerHTML = input.value + ' km';
-  })
 }
 
 const initMapbox = () => {
