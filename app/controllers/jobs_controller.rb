@@ -51,6 +51,8 @@ class JobsController < ApplicationController
   end
 
   def confirm
+    @booking = Booking.find(params[:booking_id])
+    @booking.update(pending: true)
     @job.update(job_params)
     authorize @job
     redirect_to jobs_path(my_jobs: true)

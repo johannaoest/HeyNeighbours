@@ -22,7 +22,11 @@ class BookingPolicy < ApplicationPolicy
     user == record.job.user || user.admin
   end
 
-  def confirmation?
+  def create_confirmation?
+    user == record.job.user || user.admin
+  end
+
+  def check_confirmation?
     true
   end
 

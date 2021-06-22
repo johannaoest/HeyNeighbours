@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show destroy confirmation]
+  before_action :set_booking, only: %i[show destroy create_confirmation check_confirmation]
   def show
   end
 
@@ -39,9 +39,17 @@ class BookingsController < ApplicationController
     authorize @job
   end
 
-  def confirmation
+  def create_confirmation
     @job = @booking.job
     authorize @booking
+  end
+
+  def check_confirmation
+    authorize @booking
+  end
+
+  def confirm
+    
   end
 
   private
