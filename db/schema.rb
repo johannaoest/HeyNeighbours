@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_21_125053) do
+ActiveRecord::Schema.define(version: 2021_06_22_122102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,8 @@ ActiveRecord::Schema.define(version: 2021_06_21_125053) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "confirmed"
+    t.boolean "confirmed", default: false
+    t.boolean "pending", default: false
     t.index ["job_id"], name: "index_bookings_on_job_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -68,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_06_21_125053) do
     t.string "details"
     t.string "location"
     t.date "date"
-    t.integer "duration"
+    t.string "duration"
     t.integer "price"
     t.integer "rating", default: 0
     t.datetime "created_at", precision: 6, null: false

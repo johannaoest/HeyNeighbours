@@ -1,5 +1,8 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: %i[show destroy edit update]
+
+  before_action :set_job, only: %i[show destroy edit update confirm]
+  skip_before_action :authenticate_user!, only: :index
+
   def index
 
     if params[:my_jobs]
@@ -13,7 +16,7 @@ class JobsController < ApplicationController
       end
     end
 
-    
+
     @markers = @jobs.geocoded.map do |job|
       {
         lat: job.latitude,
@@ -50,10 +53,19 @@ class JobsController < ApplicationController
     redirect_to job_path(@job)
   end
 
+  def confirm
+    @booking = Booking.find(params[:booking_id])
+    @booking.update(pending: true)
+    @job.update(job_params)
+    authorize @job
+    redirect_to jobs_path(my_jobs: true)
+  end
+
   def edit
   end
 
   def show
+    @chatroom = Chatroom.find_by(sender: current_user, recipient: @job.user)
   end
 
   private

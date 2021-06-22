@@ -32,7 +32,7 @@
                         <tbody>
                             <tr>
                                 <td><%= job.date %></td>
-                                <td><%= job.duration %> hours </td>
+                                <td><%= job.duration %></td>
                                 <td><%= job.price %> euros</td>
                                 <td><%= job.location %></td>
                                 <td><%= job.category %></td>
@@ -42,14 +42,16 @@
                     </table>
                 </div>            
                 <div class="job-done-actions">
-                    <div class="button">
-                        <%= link_to 'Edit',edit_job_path(job), class:"btn-orange" %>
+                    <div class="inline-buttons">
+                        <div class="button">
+                            <%= link_to 'Edit',edit_job_path(job), class:"btn-orange" %>
+                        </div>
+                        <div class="button">
+                            <%= link_to 'Delete',job, method: :delete, data: { confirm: 'Are you sure you want to delete this?'}, class:"btn-orange" %>
+                        </div>
                     </div>
                     <div class="button">
-                        <%= link_to 'Destroy',job, method: :delete, data: { confirm: 'Are you sure you want to delete this?'}, class:"btn-orange" %>
-                    </div>
-                    <div class="button">
-                        <%= link_to 'Applyments', applyments_index_path(job), class:"btn-orange" %>
+                        <%= link_to 'Applicants', applyments_index_path(job), class:"btn-orange" %>
                     </div>
                 </div>
             </div>

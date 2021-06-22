@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   # devise_for :users
   devise_for :users, :controllers => {:registrations => "registrations/registrations"}
 
+  patch 'confirm/:id/:booking_id', to: "jobs#confirm", as: "confirm_job"
   get 'users/:id', to: "users#show", as: "users_show"
   get 'applyments/:job_id', to: "bookings#applyments", as: "applyments_index"
-  get 'confirmation/:id', to: "bookings#confirmation", as: "booking_confirmation"
+  get 'confirmation/:id', to: "bookings#create_confirmation", as: "booking_confirmation"
+  get 'check_confirmation/:id', to: "bookings#check_confirmation", as: "check_confirmation"
+  patch 'final_confirm/:id', to: "bookings#confirm", as: "final_confirmation"
+
   root to: 'pages#home'
 
   resources :jobs do

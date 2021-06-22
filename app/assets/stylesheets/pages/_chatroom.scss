@@ -8,7 +8,6 @@
   height: 75vh;
   margin: auto;
   margin-bottom: 20px;
-
 }
 
 .messages {
@@ -17,9 +16,62 @@
   font-size: 1rem;
 }
 
-.chatbubble {
+.reciever .chat-color {
   background-color : #4692F0;
   border-radius : 5px;
-  padding: 0;
-  margin: 0;
+  padding: 10px;
+  margin: 10px;
 }
+
+.reciever .icons{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.icons{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.chat-color {
+  background-color :#36A18B
+
+}
+
+.avatar-chat {
+  padding: 10px;
+  margin: 10px;
+
+}
+
+.btn {
+  border-radius: 5px;
+
+}
+
+.form-control {
+  size : 50px;
+}
+
+.text-field {
+  min-width: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+.input-form {
+    align-content: space-around;
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+
+

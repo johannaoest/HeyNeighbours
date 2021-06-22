@@ -42,18 +42,37 @@
                     </table>
                 </div>            
                 <div class="job-done-actions">
-                    <div class="btn-orange mb-2 ml-3 text-center h6">
-                        <%= link_to new_booking_review_path(booking) do %>
-                            Rate <%= booking.job.user.first_name %>
+                    <% if booking.pending %>
+                        <% if !booking.confirmed %>
+
+                            <button type="button" class="btn-orange mb-2 ml-3 text-center h6" data-toggle="modal" data-target="#confirmation_modal_<%= booking.id %>">
+                                Confirm
+                            </button> 
+
+                        <% else %>
+                            <div class="btn-orange mb-2 ml-3 text-center h6">
+                                <%= link_to new_booking_review_path(booking) do %>
+                                    Rate <%= booking.job.user.first_name %>
+                                <% end %>
+                            </div>
                         <% end %>
-                    </div>
-                    <div class="btn-orange ml-3 text-center h6">
-                        <%= link_to users_show_path(booking.job.user) do %>
-                            <%= booking.job.user.first_name %>'s profile
-                        <% end %>
-                    </div>
+                    <% else %>
+                        <h2>Pending...</h2>
+                            <div class="btn-orange ml-3 text-center h6">
+                                <%= link_to users_show_path(booking.job.user) do %>
+                                    <%= booking.job.user.first_name %>'s profile
+                                <% end %>
+                            </div>
+                    <% end %>
+                    
                 </div>
             </div>
+
+        <%= render 'check_confirmation', booking: booking %>
         <% end %>
+
+        
     <% end %>
+    
 </div>
+
