@@ -8,6 +8,8 @@
 UserCategory.destroy_all
 Category.destroy_all
 puts "Deleting all Categories..."
+Message.destroy_all
+Chatroom.destroy_all
 Review.destroy_all
 puts "Deleting all reviews..."
 Booking.destroy_all
@@ -124,7 +126,7 @@ job = Job.new(
   details: "I'm looking for somebody to take my baby for a walk tomorrow afternoon since I will be very busy. We have a nice park in the negihbourhood with a dogpark, that is Pumpkin's favourite place.",
   location: "Calle de Montesa, 39, 28006 Madrid",
   price: 8,
-  duration: 1,
+  duration: "1 hour",
   date: "2021. 06. 17.",
   user: lili,
   category: animal.name
@@ -139,7 +141,7 @@ job = Job.new(
   details: "As soon as possible, because I am out. Caquita",
   location: "Madrid",
   price: 50,
-  duration: 1,
+  duration: "15 minutes",
   date: "2021. 06. 22.",
   user: alen,
   category: grocery.name
@@ -154,7 +156,7 @@ job = Job.new(
   details: "Hallo! I really need somebody to install wifi at my place! Preferably this night! HELP!",
   location: "Madrid, CHueca",
   price: 11,
-  duration: 2,
+  duration: "1 hour",
   date: "2021. 06. 25.",
   user: johanna,
   category: animal.name
@@ -168,7 +170,7 @@ job = Job.new(
   details: "I have to leave town for a few days, so I am looking for someone who would take care of the love of my life, Mister Cotton. He has to be fed four times a day with premium cat food. His litter needs to bo changed also twice a day. You should take care, because if his needs are not satisfied well enough Mister Cotton will attack you. IMPORTANT: Avoid eye contact.",
   location: "Madrid, Puerta del Sol",
   price: 22,
-  duration: 3,
+  duration: "3 hours",
   date: "2021. 06. 19.",
   user: lili,
   category: technology.name
@@ -183,7 +185,7 @@ job = Job.new(
   details: "I need somebody to do the shopping for me. I need a lot of things from the supermarket, so preferably I am looking for a strong young man who can carry many bags.",
   location: "Puerta del Angel",
   price: 11,
-  duration: 2,
+  duration: "2 hours",
   date: "2021. 06. 16.",
   user: lili,
   category: grocery.name
@@ -197,9 +199,9 @@ job = Job.new(
   details: "Hello, my garden looks terrible, the grass is super long, I need someone to cut it for me!",
   location: "Casa de campo, Madrid",
   price: 30,
-  duration: 5,
+  duration: "4 hours",
   date: "2021. 06. 16.",
-  user: lili,
+  user: johanna,
   category: gardening.name
 )
 
@@ -212,7 +214,7 @@ job = Job.new(
   details: "I need SOS help, I can't even look through them! I have 12 windows, I'd like to pay 2 euros for each.",
   location: "Madrid",
   price: 24,
-  duration: 3,
+  duration: "3 hours",
   date: "2021. 06. 16.",
   user: lili,
   category: home.name
@@ -222,13 +224,13 @@ job.save!
 
 file = URI.open('https://images.unsplash.com/photo-1489274495757-95c7c837b101?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aXJvbmluZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
 job = Job.new(
-  title: "Clean my windows please",
+  title: "Iron my shirts",
   details: "Hello, I have some shirts and I need them to be ironed, please help. 8 shirts in case we want to be accurate.",
   location: "Madrid",
   price: 8,
-  duration: 1,
+  duration: "1 hour",
   date: "2021. 06. 19.",
-  user: lili,
+  user: alen,
   category: home.name
 )
 
