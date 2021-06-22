@@ -88,6 +88,25 @@
     margin-left: 25px;
 }
 
+
+.rounded-circle {
+  height: 100px;
+  width: 100px;
+}
+
+.special-image-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+
+}
+
+.main-btn {
+  margin: 10px;
+  padding: 10px;
+
+}
 .scroll-reviews {
     height: 60%;
     overflow-y: scroll;
@@ -97,3 +116,4 @@
 ::-webkit-scrollbar-track {
     background-color: rgba($color: #0f1a2521, $alpha: 1.0);
 }
+

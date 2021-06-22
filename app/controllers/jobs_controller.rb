@@ -14,7 +14,7 @@ class JobsController < ApplicationController
       end
     end
 
-    
+
     @markers = @jobs.geocoded.map do |job|
       {
         lat: job.latitude,
@@ -55,6 +55,7 @@ class JobsController < ApplicationController
   end
 
   def show
+    @chatroom = Chatroom.find_by(sender: current_user, recipient: @job.user)
   end
 
   private
