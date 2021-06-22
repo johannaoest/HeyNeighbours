@@ -1,4 +1,4 @@
-class BookingPolicy < ApplicationPolicy
+class ChatroomPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       # Job.where(user: user)
@@ -11,7 +11,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    user == record.sender || user == record.recipient
   end
 
   def update?
@@ -19,16 +19,12 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user == record.job.user || user.admin
-  end
-
-  def confirmation?
-    true
+    user_is_owner_or_admin?
   end
 
   private
 
   def user_is_owner_or_admin?
-    user == record.user || user.admin
+    user == record.sender || user == record.recipient || user.admin
   end
 end

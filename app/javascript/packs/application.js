@@ -25,6 +25,9 @@ require("channels")
 // External imports
 import "bootstrap";
 
+import { initChatroomCable } from '../channels/chatroom_channel';
+
+
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { initMapbox } from '../plugins/init_mapbox.js';
@@ -42,6 +45,7 @@ import { initStarRating } from '../plugins/init_star_rating';
 
 
 
+
 document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   // filterValue();
@@ -50,6 +54,16 @@ document.addEventListener('turbolinks:load', () => {
 
 })
 
+const job_index = document.querySelector(".jobs-index")
+document.addEventListener('turbolinks:load', () => {
+  initAutocomplete();
+  initChatroomCable();
+  initStarRating();
+    if (job_index) {
+     initMapbox();
+     filterValue();
+
+
 
 const mapButton = document.getElementById("map-btn");
 const map = document.querySelector('#map-hide');
@@ -57,11 +71,10 @@ mapButton.addEventListener("click", (event) => {
   event.preventDefault();
   map.classList.toggle("open-map");
   map.classList.toggle("closed-map");
-  console.log(mapButton)
   if (mapButton.innerText == "Open map") {
     mapButton.innerText = "Close map";
   } else {
-    mapButton.innterText = "Open map";
+    mapButton.innerText = "Open map";
   };
 
 });
@@ -69,4 +82,5 @@ mapButton.addEventListener("click", (event) => {
 map.on('idle', function(){
   map.resize();
 });
-
+}
+});

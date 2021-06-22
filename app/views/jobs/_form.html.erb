@@ -1,12 +1,16 @@
   <%= simple_form_for(job) do |f| %>
 
-        <%= f.input :title %>
-        <%= f.input :details, as: :text %>
-        <%= f.input :price %>
-        <%= f.input :location %>
-        <%= f.input :date %>
-        <%= f.input :duration %>
-        <%= f.input :category, :collection=>Job.category, value: :name, include_blank: false, include_hidden: false %>
+        <%= f.input :title, label: 'Your job title' %>
+        <%= f.input :details, as: :text, label: 'Job details', placeholder: 'All the important details about job you are offering.' %>
+        <%= f.input :location, label: 'Job location' %>
+        <div class="form-inline">
+          <%= f.input :category, :collection=>Job.category, value: :name, include_blank: false, include_hidden: false, wrapper_html: { class: 'inline-element' }, input_html: { class: 'form-element' } %>
+          <%= f.input :price, placeholder: '€', label: 'Earnings', wrapper_html: { class: 'inline-element' }, input_html: { class: 'form-element' } %>
+        </div>
+        <div class="form-inline">
+          <%= f.input :date, as: :date, html5: true, wrapper_html: { class: 'inline-element' }, input_html: { class: 'form-element' } %>
+          <%= f.input :duration, collection: Job.duration, default: Job.duration.first, wrapper_html: { class: 'inline-element' }, input_html: { class: 'form-element' } %>
+        </div>
         <%= f.input :photo, as: :file %>
 
       <%= f.submit 'Offer your job', class:'btn-orange' %>
