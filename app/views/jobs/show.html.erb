@@ -71,6 +71,7 @@
                       </td>
                   </div>
             </div>
+
             <div class="reviews col-4">
                 <div class="title">
                     <h1>Reviews</h1>
@@ -90,6 +91,16 @@
                     <% end %>
                 <% end %>
             </div>
+               <div data-aos="fade-left"  data-aos-delay="300" class="special-image-wrap">
+                  <div class="avatar-float">
+                      <img class="rounded-circle special-image" src="/assets/profile-1080da6b317b1eebf7b62f8227585e1f424b7e8ffc84c16d3e6664b70b750f7e.png" alt="">
+                      <p style="color: white!important;" href="#footer" class="main-btn name-button">Hello #{@chatroom.name} </p>
+                         <p>
+                          <%= link_to "Start Chatting", @chatroom , class: "main-btn image-button" %>
+                  </div>
+                </div>
+              </div>
+
         </div>
     </div>
 </div>
