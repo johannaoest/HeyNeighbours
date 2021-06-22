@@ -16,3 +16,6 @@ $headers-font: 'Bebas Neue', cursive;
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+.h1, h2, h3, h4 {
+    text-shadow: 1px 1px rgb(39, 39, 39);
+}
