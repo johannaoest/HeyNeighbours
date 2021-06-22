@@ -21,7 +21,7 @@
                     <tbody>
                         <tr>
                             <td><%= @job.date %></td>
-                            <td><%= @job.duration %> hours</td>
+                            <td><%= @job.duration %></td>
                             <td><%= @job.price %> euros</td>
                             <td><%= @job.location %></td>
                             <td><%= @job.category %></td>
@@ -53,14 +53,14 @@
             </div>
                 <p><%= @job.user.introduction %></p>
             <div class="title">
-                <h3> <%= @job.user.first_name %>'s categories</h3>
+                <h3> <%= @job.user.first_name %> can help you with...</h3>
             </div>
                   <div class="employer-categories ">
                       <div class="d-flex row" >
                         <td><% @job.user.categories.each do |category| %>
                             <div class="icons d-flex col-6 row" >
                               <div class ="icons-name">
-                              <h8> <%= category.name %></h8>
+                              <h6> <%= category.name %></h6>
                               </div>
                               <div class="avatar-container col-6 row">
                                  <img src= <%= choose_image_category(category) %> class="card-job-user avatar-bordered" >
@@ -76,20 +76,28 @@
                 <div class="title">
                     <h1>Reviews</h1>
                 </div>
-                <% @job.user.jobs.each do |job| %>
-                    <% job.reviews.each do |review|  %>
-                        <div class="reviewer">
-                            <img src= <%= choose_avatar(review.user) %> class="card-job-user avatar-bordered">
-                            <div class="reviewer-name">
-                                <h4><%= review.user.first_name %></h4>
-                                <h4><%= review.rating %> / 5</h4>
+                <div class="scroll-reviews">
+                    <% @job.user.jobs.each do |job| %>
+                        <% job.reviews.each do |review|  %>
+                            <div class="reviewer">
+                                <img src= <%= choose_avatar(review.user) %> class="card-job-user avatar-bordered">
+                                <div class="reviewer-name">
+                                    <h4><%= review.user.first_name %></h4>
+                                    <% if (review.rating) %>
+                                        <div class="d-flex">
+                                        <% review.rating.times do %>
+                                            <i class="fas fa-star"></i>
+                                        <% end %>
+                                        </div>
+                                    <% end %>
+                                </div>
+                                <div class="review">
+                                    <p><%= review.comment %></p>
+                                </div>
                             </div>
-                            <div class="review">
-                                <p><%= review.comment %></p>
-                            </div>
-                        </div>
+                        <% end %>
                     <% end %>
-                <% end %>
+                </div>
             </div>
                <div data-aos="fade-left"  data-aos-delay="300" class="special-image-wrap">
                   <div class="avatar-float">
