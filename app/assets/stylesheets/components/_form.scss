@@ -56,6 +56,14 @@
 
 }
 
-.date {
-  display: block;
+.form-inline {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 70%;
+  margin-left: 70px;
+  padding: 10px;
+}
+
+.inline-element {
+  width: 20%;
 }
