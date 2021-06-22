@@ -38,7 +38,15 @@
                 </div>
                 <div class="applyments-buttons">
                     <% if booking.pending %>
-                        <h2>Pending...</h2>
+                        <% if !booking.confirmed %>
+                            <h2>Pending...</h2>
+                        <% else %>
+                            <div class="btn-orange mb-2 ml-3 text-center h6">
+                                <%= link_to new_booking_review_path(booking) do %>
+                                    Rate <%= booking.user.first_name %>
+                                <% end %>
+                            </div>
+                        <% end %>
                     <% else %>
                         <div class="btn-orange mb-2 ml-3 text-center h6">
                         

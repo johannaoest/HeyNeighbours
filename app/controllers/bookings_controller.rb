@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show destroy create_confirmation check_confirmation]
+  before_action :set_booking, only: %i[show destroy create_confirmation check_confirmation confirm]
   def show
   end
 
@@ -49,7 +49,11 @@ class BookingsController < ApplicationController
   end
 
   def confirm
-    
+    authorize @booking
+
+    @booking.update(confirmed: true)
+
+    redirect_to bookings_path
   end
 
   private

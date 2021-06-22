@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'applyments/:job_id', to: "bookings#applyments", as: "applyments_index"
   get 'confirmation/:id', to: "bookings#create_confirmation", as: "booking_confirmation"
   get 'check_confirmation/:id', to: "bookings#check_confirmation", as: "check_confirmation"
-  
+  patch 'final_confirm/:id', to: "bookings#confirm", as: "final_confirmation"
 
   root to: 'pages#home'
 
