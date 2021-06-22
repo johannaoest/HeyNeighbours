@@ -27,6 +27,10 @@ class JobPolicy < ApplicationPolicy
     true
   end
 
+  def confirm?
+    true
+  end
+
   private
 
   def user_is_owner_or_admin?

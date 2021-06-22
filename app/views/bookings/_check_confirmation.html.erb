@@ -1,0 +1,33 @@
+
+<div class="modal fade" id="confirmation_modal_<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle"><%= booking.job.title %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>Description</h6>
+        <p><%= booking.job.details %>
+
+        <h6>Date</h6>
+        <p><%= booking.job.date %></p>
+
+        <h6>Duration</h6>
+        <p><%= booking.job.duration %> min</p>
+
+        <h6>Earning</h6>
+        <p><%= booking.job.price %> € </p>
+
+        <h6>Location</h6>
+        <p><%= booking.job.location %></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= link_to 'Confirm', final_confirmation_path(booking), class:"btn btn-primary", method: :patch %>
+      </div>
+    </div>
+  </div>
+</div>
