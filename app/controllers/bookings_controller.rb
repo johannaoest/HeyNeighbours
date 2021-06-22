@@ -40,6 +40,7 @@ class BookingsController < ApplicationController
   end
 
   def confirmation
+    @job = @booking.job
     authorize @booking
   end
 

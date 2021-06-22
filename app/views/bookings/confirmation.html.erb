@@ -1,4 +1,18 @@
+<div class="form-container">
+  <%= simple_form_for @job, url: confirm_job_path(@job), method: :patch do |f| %>
 
+        <h2><%= @job.title %></h2>
+        <p>Job description: <%= @job.details %><p>
+        <p>Location: <%= @job.location %></p>
+        <p>Category: <%= @job.category %></p>
 
+        <%= f.input :price %>
+        <%= f.input :date, as: :date, html5: true %>
+        <%= f.input :duration %>
 
-
+      <%= f.submit 'Confirm', class:'btn-orange' %>
+  <% end %>
+  <div class="link">
+    <%= link_to "Back", :back %>
+  </div>
+</div>

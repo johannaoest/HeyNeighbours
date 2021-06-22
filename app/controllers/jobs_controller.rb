@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: %i[show destroy edit update]
+  before_action :set_job, only: %i[show destroy edit update confirm]
   def index
 
     if params[:my_jobs]
@@ -48,6 +48,12 @@ class JobsController < ApplicationController
   def update
     @job.update(job_params)
     redirect_to job_path(@job)
+  end
+
+  def confirm
+    @job.update(job_params)
+    authorize @job
+    redirect_to jobs_path(my_jobs: true)
   end
 
   def edit
