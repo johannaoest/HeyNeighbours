@@ -1,7 +1,16 @@
-<div class="message-container" id="message-<%= message.id %>">
-  <i class="author">
-    <span><%= message.user.nickname %></span>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-  </i>
-  <p><%= message.content %></p>
+ <div class="message-container reciever" id="message-<%= message.id %>">
+        <div class="icons ">
+              <i class="author">
+              <span><%= message.user.nickname %></span>
+
+                <div class="avatar-chat d-flex ">
+                <img src= <%= choose_avatar(message.user) %> class="card-job-user avatar-bordered" >
+                </div>
+
+                <div class="chat-color col-8 ">
+                <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+              </i>
+                <p><%= message.content %></p>
+                </div>
+        </div>
 </div>
