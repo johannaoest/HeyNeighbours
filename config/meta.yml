@@ -1,0 +1,5 @@
+meta_product_name: "Hey!Neighbour"
+meta_title: "Hey!Neighbours - Find & offer small jobs in your neighbourhood!"
+meta_description: "Help out your neighbours with things you are amazing at, and find people to give you a hand with chores you don't like!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
