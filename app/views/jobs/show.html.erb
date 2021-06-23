@@ -67,6 +67,8 @@
                               <div class="avatar-container col-6 row">
                                  <img src= <%= choose_image_category(category) %> class="card-job-user avatar-bordered" >
                               </div>
+
+
                             </div>
                             <% end %>
                         </div>
@@ -80,7 +82,7 @@
                 </div>
                 <div class="scroll-reviews">
                     <% @job.user.jobs.each do |job| %>
-                        <% job.reviews.where.not(user: current_user)each do |review|  %>
+                        <% job.reviews.where.not(user: current_user).each do |review|  %>
                             <div class="reviewer">
                                 <img src= <%= choose_avatar(review.user) %> class="card-job-user avatar-bordered">
                                 <div class="reviewer-name">
