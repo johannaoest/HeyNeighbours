@@ -1,15 +1,19 @@
 
 <div class="background-container">
 
+<h2 class="title">#<%= "All your active chats" %></h2>
+
   <div class="main-chat col-8 ">
       <% @chatrooms.each do |chat|  %>
+    <div class="icons ">
        <div class="avatar-chat d-flex ">
           <span><%= chat.sender.nickname %></span>
           <img src= <%= choose_avatar(chat.sender) %> class="card-job-user avatar-bordered" >
       </div>
+
        <%= link_to "Start the Chat ", chatroom_path(chat) %>
     <% end %>
-
+  </div>
 
 
   </div>
