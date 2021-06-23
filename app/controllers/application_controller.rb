@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+  # def hide_footer?
+  #   return true if 
+  # end
+
   private
 
   def skip_pundit?
