@@ -4,4 +4,8 @@ class ChatroomsController < ApplicationController
     authorize @chatroom
     @message = Message.new
   end
+
+  def index
+    @chatrooms = policy_scope(Chatroom).where(recipient: current_user).or(policy_scope(Chatroom).where(sender: current_user))
+  end
 end

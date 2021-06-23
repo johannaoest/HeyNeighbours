@@ -2,7 +2,8 @@
   <%= link_to "My profile", users_show_path(current_user), class: "dropdown-item" %>
   <%= link_to "Jobs posted by me", jobs_path(my_jobs: true), class: "dropdown-item" %>
   <%= link_to "Jobs done by me", bookings_path, class: "dropdown-item" %>
-  <%= link_to "Messages", "#", class: "dropdown-item" %>
+  <%= link_to "Chatrooms", chatrooms_path(), class: "dropdown-item" %>
+
   <div class="dropdown-divider"></div>
   <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
 </div>

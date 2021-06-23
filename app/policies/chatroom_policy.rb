@@ -10,6 +10,10 @@ class ChatroomPolicy < ApplicationPolicy
     true
   end
 
+  def index?
+    true
+  end
+
   def show?
     user == record.sender || user == record.recipient
   end
