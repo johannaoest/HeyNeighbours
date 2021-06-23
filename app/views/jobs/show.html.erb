@@ -80,7 +80,7 @@
                 </div>
                 <div class="scroll-reviews">
                     <% @job.user.jobs.each do |job| %>
-                        <% job.reviews.each do |review|  %>
+                        <% job.reviews.where.not(user: current_user)each do |review|  %>
                             <div class="reviewer">
                                 <img src= <%= choose_avatar(review.user) %> class="card-job-user avatar-bordered">
                                 <div class="reviewer-name">

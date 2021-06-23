@@ -40,7 +40,7 @@
                     
                         <% if booking.confirmed %>
                             <div class="btn-orange mb-2 ml-3 text-center h6">
-                                <%= link_to new_booking_review_path(booking) do %>
+                                <%= link_to new_booking_review_path(booking, employee: true) do %>
                                     Rate <%= booking.user.first_name %>
                                 <% end %>
                             </div>
