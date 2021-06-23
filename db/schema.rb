@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_131127) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "confirmed", default: false
+    t.boolean "confirmed"
     t.boolean "pending", default: false
     t.boolean "employer_rated", default: false
     t.boolean "employee_rated", default: false
