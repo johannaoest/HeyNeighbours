@@ -14,12 +14,18 @@ class ReviewsController < ApplicationController
 
     if current_user == @booking.job.user
       @review.reviewed_user = @booking.user
+
     else
       @review.reviewed_user = @booking.job.user
     end
 
     authorize @review
     if @review.save
+      if current_user == @booking.job.user
+        @booking.update(employee_rated: true)
+      else
+        @booking.update(employer_rated: true)
+      end
       redirect_to users_show_path(@review.reviewed_user)
     else
       render "jobs/show"
