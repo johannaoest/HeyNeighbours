@@ -53,6 +53,8 @@ class BookingsController < ApplicationController
 
     @booking.update(confirmed: true, pending: false)
 
+    Booking.where.not(id: @booking.id).where(job: @booking.job).destroy_all
+
     redirect_to bookings_path
   end
 
