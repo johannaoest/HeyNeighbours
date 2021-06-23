@@ -7,5 +7,6 @@ class ChatroomsController < ApplicationController
 
   def index
     @chatrooms = policy_scope(Chatroom).where(recipient: current_user).or(policy_scope(Chatroom).where(sender: current_user))
+    @message = Message.new
   end
 end
