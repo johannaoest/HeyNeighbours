@@ -14,7 +14,8 @@ class Job < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
-  scope :available, -> { includes(:bookings).where( bookings: {job_id: nil}) }
+  scope :without_bookings, -> { includes(:bookings).where( bookings: {job_id: nil}) }
+  scope :bookings_not_confirmed, -> { includes(:bookings).where(bookings: { confirmed: false }) }
 
   def self.category
     ["Please choose one", "Animal Care", "Child Care", "Construction", "Education", "Grocery", "Gardening", "Housekeeping", "Technology", "Logistics", "Manufacturing", "Others"]

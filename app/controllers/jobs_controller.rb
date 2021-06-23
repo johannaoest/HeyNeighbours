@@ -4,7 +4,7 @@ class JobsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @jobs = policy_scope(Job).includes(:bookings).where(bookings: { confirmed: false }).or(policy_scope(Job).available)
+    @jobs = policy_scope(Job).bookings_not_confirmed.or(policy_scope(Job).without_bookings)
 
     if params[:my_jobs]
       @jobs = @jobs.where(user: current_user).order(created_at: :desc)
