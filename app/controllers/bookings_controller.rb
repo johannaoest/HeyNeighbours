@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
     authorize @booking
     if @booking.save
       create_chat
-      redirect_to job_path(@booking.job)
+      redirect_to bookings_path
     else
       render 'new'
     end
@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
   def confirm
     authorize @booking
 
-    @booking.update(confirmed: true)
+    @booking.update(confirmed: true, pending: false)
 
     redirect_to bookings_path
   end

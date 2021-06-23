@@ -8,11 +8,12 @@ class JobsController < ApplicationController
     if params[:my_jobs]
       @jobs = policy_scope(Job).where(user: current_user).order(created_at: :desc)
     else
+      @jobs = policy_scope(Job).bookings_not_confirmed.or(policy_scope(Job).without_bookings)
       if params['filter']
         @distance = params['filter']['distance']
-        @jobs = policy_scope(Job).where.not(user: current_user).near(current_user.address, params['filter']['distance'].to_i).order(created_at: :desc)
+        @jobs = @jobs.where.not(user: current_user).near(current_user.address, params['filter']['distance'].to_i).order(created_at: :desc)
       else
-        @jobs = policy_scope(Job).where.not(user: current_user).order(created_at: :desc)
+        @jobs = @jobs.where.not(user: current_user).order(created_at: :desc)
       end
     end
 
@@ -37,7 +38,7 @@ class JobsController < ApplicationController
     authorize @job
 
     if @job.save
-      redirect_to job_path(@job)
+      redirect_to jobs_path(my_jobs: true)
     else
       render 'new'
     end
