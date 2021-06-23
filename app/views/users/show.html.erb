@@ -55,7 +55,7 @@
                         <img src= <%= choose_avatar(review.user) %> class="card-job-user avatar-bordered">
                         <div class="reviewer-name">
                             <h4><%= review.user.first_name %></h4>
-                            <% review.rating do %>
+                            <% review.rating.times do %>
                               <i class="fas fa-star"></i>
                             <% end %>
 
