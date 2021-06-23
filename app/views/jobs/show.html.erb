@@ -33,6 +33,8 @@
             <div class="apply">
                 <% if @job.bookings.where(user: current_user).present? %>
                         <h2>You applied!</h2>
+                <% elsif @job.user == current_user %>
+
                 <% else %>
                         <%= link_to "Apply for this job", job_bookings_path(@job), method: :post, class:"btn-orange" %>
                 <% end %>
@@ -78,12 +80,13 @@
                 </div>
                 <div class="scroll-reviews">
                     <% @job.user.jobs.each do |job| %>
-                        <% job.reviews.each do |review|  %>
+                        <% job.reviews.where.not(user: current_user)each do |review|  %>
                             <div class="reviewer">
                                 <img src= <%= choose_avatar(review.user) %> class="card-job-user avatar-bordered">
                                 <div class="reviewer-name">
                                     <h4><%= review.user.first_name %></h4>
                                     <% if (review.rating) %>
+
                                         <div class="d-flex">
                                         <% review.rating.times do %>
                                             <i class="fas fa-star"></i>

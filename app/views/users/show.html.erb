@@ -4,9 +4,11 @@
         <div class="title">
             <h2 class="mt-1"><%= @user.first_name %> <%= @user.last_name %></h2>
         </div>
-        <div class="edit-button">
-            <%= link_to 'Edit', edit_user_registration_path, class:"btn-orange" %>
-        </div>
+        <% if @user == current_user %>
+            <div class="edit-button">
+                <%= link_to 'Edit', edit_user_registration_path, class:"btn-orange" %>
+            </div>
+        <% end %>
     </div>
     <div class="row">
         <div class="col-6">
@@ -47,13 +49,12 @@
             <div class="title">
                 <h2>Reviews about me</h2>
             </div>
-            <% @user.jobs.each do |job| %>
-                <% job.reviews.each do |review|  %>
+            <% @my_reviews.each do |review| %>
                     <div class="reviewer">
                         <img src= <%= choose_avatar(review.user) %> class="card-job-user avatar-bordered">
                         <div class="reviewer-name">
                             <h4><%= review.user.first_name %></h4>
-                            <% review.rating do %>
+                            <% review.rating.times do %>
                               <i class="fas fa-star"></i>
                             <% end %>
 
@@ -62,7 +63,6 @@
                             <p><%= review.comment %></p>
                         </div>
                     </div>
-                <% end %>
             <% end %>
         </div>
     </div>

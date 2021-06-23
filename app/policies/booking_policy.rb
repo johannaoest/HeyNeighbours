@@ -7,7 +7,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user != record.job.user
   end
 
   def show?
