@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
   def confirm
     authorize @booking
 
-    @booking.update(confirmed: true)
+    @booking.update(confirmed: true, pending: false)
 
     redirect_to bookings_path
   end
