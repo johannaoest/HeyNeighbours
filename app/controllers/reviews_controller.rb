@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
 
     authorize @review
     if @review.save
-      redirect_to users_show_path(@review.booking.job.user)
+      redirect_to users_show_path(@review.reviewed_user)
     else
       render "jobs/show"
     end
