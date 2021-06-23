@@ -8,7 +8,7 @@
 
         <%= f.input :price %>
         <%= f.input :date, as: :date, html5: true %>
-        <%= f.input :duration %>
+        <%= f.input :duration, collection: Job.duration, default: Job.duration.first, wrapper_html: { class: 'inline-element' }, input_html: { class: 'form-element' } %>
 
       <%= f.submit 'Confirm', class:'btn-orange' %>
   <% end %>
