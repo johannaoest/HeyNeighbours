@@ -4,11 +4,11 @@ class JobsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @jobs = policy_scope(Job).bookings_not_confirmed.or(policy_scope(Job).without_bookings)
 
     if params[:my_jobs]
-      @jobs = @jobs.where(user: current_user).order(created_at: :desc)
+      @jobs = policy_scope(Job).where(user: current_user).order(created_at: :desc)
     else
+      @jobs = policy_scope(Job).bookings_not_confirmed.or(policy_scope(Job).without_bookings)
       if params['filter']
         @distance = params['filter']['distance']
         @jobs = @jobs.where.not(user: current_user).near(current_user.address, params['filter']['distance'].to_i).order(created_at: :desc)
@@ -38,7 +38,7 @@ class JobsController < ApplicationController
     authorize @job
 
     if @job.save
-      redirect_to job_path(@job)
+      redirect_to jobs_path(my_jobs: true)
     else
       render 'new'
     end
