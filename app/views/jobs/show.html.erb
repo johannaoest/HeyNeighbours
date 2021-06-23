@@ -67,6 +67,8 @@
                               <div class="avatar-container col-6 row">
                                  <img src= <%= choose_image_category(category) %> class="card-job-user avatar-bordered" >
                               </div>
+
+
                             </div>
                             <% end %>
                         </div>
@@ -79,6 +81,7 @@
                     <h1>Reviews</h1>
                 </div>
                 <div class="scroll-reviews">
+
                     <% @job.user.my_reviews.each do |review| %>
                         <div class="reviewer">
                             <img src= <%= choose_avatar(review.user) %> class="card-job-user avatar-bordered">
@@ -88,6 +91,7 @@
                                     <div class="d-flex">
                                     <% review.rating.times do %>
                                         <i class="fas fa-star"></i>
+
                                     <% end %>
                                     </div>
                                 <% end %>
