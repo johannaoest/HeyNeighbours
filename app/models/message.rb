@@ -6,6 +6,6 @@ class Message < ApplicationRecord
 
   def deliver_notification
     notification = MessageNotification.with(message: self.id)
-    notification.deliver(self.user)
+    notification.deliver(self.chatroom.recipient)
   end
 end

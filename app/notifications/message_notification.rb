@@ -22,7 +22,7 @@ class MessageNotification < Noticed::Base
   def message
     message = Message.find(params[:message])
     if message.present?
-      "You have a new message from #{message.user.email}!"
+      "You have a new message from #{message.user.first_name}!"
     else
       "You have a new message"
     end
