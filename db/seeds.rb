@@ -238,6 +238,7 @@ job.photo.attach(io: file, filename: 'job.png', content_type: 'image/png')
 job.save!
 
 
+
 puts "Created jobs"
 puts "Created categories"
 
