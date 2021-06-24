@@ -65,22 +65,23 @@ document.addEventListener('turbolinks:load', () => {
 
 
 
-const mapButton = document.getElementById("map-btn");
-const map = document.querySelector('#map-hide');
-mapButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  map.classList.toggle("open-map");
-  map.classList.toggle("closed-map");
-  if (mapButton.innerText == "Open map") {
-    mapButton.innerText = "Close map";
-  } else {
-    mapButton.innerText = "Open map";
-  };
+  const mapButton = document.getElementById("map-btn");
+  const map = document.querySelector('#map-hide');
+  mapButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log('button');
+    map.classList.toggle("open-map");
+    map.classList.toggle("closed-map");
+    if (mapButton.innerText == "Open map") {
+      mapButton.innerText = "Close map";
+    } else {
+      mapButton.innerText = "Open map";
+    };
 
-});
+  });
 
-map.on('idle', function(){
-  map.resize();
-});
+  map.on('idle', function(){
+    map.resize();
+  });
 }
 });
