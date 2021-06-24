@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'check_confirmation/:id', to: "bookings#check_confirmation", as: "check_confirmation"
   patch 'final_confirm/:id', to: "bookings#confirm", as: "final_confirmation"
 
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
+
   root to: 'pages#home'
 
   resources :jobs do
@@ -23,6 +26,16 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+
   resources :notifications, only: :index
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+
+
+
+
+
 
 end
