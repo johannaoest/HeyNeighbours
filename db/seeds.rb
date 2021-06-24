@@ -10,6 +10,7 @@ Category.destroy_all
 puts "Deleting all Categories..."
 Message.destroy_all
 Chatroom.destroy_all
+Order.destroy_all
 Review.destroy_all
 puts "Deleting all reviews..."
 Booking.destroy_all
