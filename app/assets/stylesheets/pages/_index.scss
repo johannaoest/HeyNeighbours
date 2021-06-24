@@ -37,6 +37,17 @@
   scroll-behavior: smooth;
 }
 
+.ordered-background-container {
+  background-color: rgba($color: #1b2d4221, $alpha: 0.75);
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(black, $alpha: 0.7);
+  width: 35%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
 .section {
   scroll-snap-align: start;
   width: 100%;

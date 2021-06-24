@@ -1,12 +1,12 @@
   
-<div class="background-container">
+<div class="ordered-background-container">
   <% @order.booking.update(paid: true) %>
 
   <div class="container">
     <div class="row py-4">
 
       <div class="col">
-        <h1>Payment successful for order #<%= @order.id %></h1>
+        <h1>Payment successful!</h1>
         <ul class="list-unstyled">
           <li><strong>ISSUED ON:</strong> <%= @order.created_at.to_date %></li>
           <li><strong>JOB:</strong> <%= @order.booking.job.title %></li>
