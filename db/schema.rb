@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_23_122045) do
+ActiveRecord::Schema.define(version: 2021_06_24_082247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,11 @@ ActiveRecord::Schema.define(version: 2021_06_23_122045) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "confirmed"
+    t.boolean "confirmed", default: false
     t.boolean "pending", default: false
+    t.boolean "employer_rated", default: false
+    t.boolean "employee_rated", default: false
+    t.boolean "paid", default: false
     t.index ["job_id"], name: "index_bookings_on_job_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -77,6 +80,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_122045) do
     t.float "latitude"
     t.float "longitude"
     t.string "category"
+    t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -88,6 +92,30 @@ ActiveRecord::Schema.define(version: 2021_06_23_122045) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "recipient_type", null: false
+    t.bigint "recipient_id", null: false
+    t.string "type", null: false
+    t.jsonb "params"
+    t.datetime "read_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["read_at"], name: "index_notifications_on_read_at"
+    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient_type_and_recipient_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_orders_on_booking_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -137,6 +165,8 @@ ActiveRecord::Schema.define(version: 2021_06_23_122045) do
   add_foreign_key "jobs", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "orders", "bookings"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "users"
   add_foreign_key "user_categories", "categories"

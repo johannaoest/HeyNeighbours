@@ -17,3 +17,13 @@
 .background-container::-webkit-scrollbar-thumb {
     background: white;
 }
+
+.notifications-container::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: rgba($color: #0f1a2521, $alpha: 1.0);
+}
+
+.notifications-container::-webkit-scrollbar-thumb {
+    background: white;
+}

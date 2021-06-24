@@ -59,7 +59,7 @@ class JobsController < ApplicationController
     @booking.update(pending: true)
     @job.update(job_params)
     authorize @job
-    redirect_to jobs_path(my_jobs: true)
+    redirect_to applyments_index_path(@job)
   end
 
   def edit

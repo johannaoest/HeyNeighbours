@@ -26,6 +26,13 @@ gem 'redis', '~> 4.0'
 # gem 'image_processing', '~> 1.2'
 gem 'cloudinary', '~> 1.16.0'
 
+gem 'money-rails'
+
+gem 'stripe'
+
+gem 'stripe_event'
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -65,3 +72,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "noticed", "~> 1.4"
