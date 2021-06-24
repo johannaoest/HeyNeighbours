@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # devise_for :users
   devise_for :users, :controllers => {:registrations => "registrations/registrations"}
 
+  post 'new_chat/:booking_id', to: "chatrooms#create", as: "new_chat"
   patch 'confirm/:id/:booking_id', to: "jobs#confirm", as: "confirm_job"
   get 'users/:id', to: "users#show", as: "users_show"
   get 'applyments/:job_id', to: "bookings#applyments", as: "applyments_index"

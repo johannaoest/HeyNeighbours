@@ -4,11 +4,21 @@
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(black, $alpha: 0.7);
-    width: 70%;
+    width: 80%;
     height: 80vh;
     margin: auto;
     overflow-y: scroll;
 }
+
+.show-container::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: rgba($color: #0f1a2521, $alpha: 1.0);
+  }
+  
+  .show-container::-webkit-scrollbar-thumb {
+      background: white;
+  }
 
 .img-container {
     height: 170px;

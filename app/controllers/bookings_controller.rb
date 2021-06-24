@@ -26,7 +26,6 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      create_chat
       redirect_to bookings_path
     else
       render 'new'
@@ -62,10 +61,5 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
-  end
-
-  def create_chat
-    chatroom = Chatroom.new(name: @booking.job.title, recipient_id: @booking.job.user.id, sender_id: current_user.id)
-    chatroom.save
   end
 end

@@ -63,6 +63,11 @@
                                     <i class="fas fa-times-circle"></i>
                                 <% end %>
                             </div>
+
+                            <div class="btn-orange mb-2 ml-3 text-center h6">
+                                <%= link_to "Chat with #{booking.user.first_name}", new_chat_path(booking), method: :post %>
+                            </div>
+
                     <% end %>
                 </div>
 
