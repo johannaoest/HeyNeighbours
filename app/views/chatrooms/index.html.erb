@@ -9,8 +9,12 @@
       <% @chatrooms.each do |chat|  %>
         <div class="icons-notifications ">
           <div class="avatar-chat d-flex ">
-            <span><%= chat.sender.nickname %></span>
             <img src= <%= choose_avatar(chat.sender) %> class="card-job-user avatar-bordered" >
+
+            <div class="chat-name">
+              </h5><%= chat.sender.first_name %></h5>
+              </h5><%= chat.sender.last_name %></h5>
+          </div>
           </div>
         </div>
 
