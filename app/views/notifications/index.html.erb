@@ -1,0 +1,10 @@
+<div class="notifications-container">
+    <div class="title">
+        <h2>Notifications</h2>
+    </div>
+    <% @notifications.each do |notification| %>
+        <div class="notification">
+            <%= link_to notification.to_notification.message, notification.to_notification.url %>
+        </div>
+    <% end %>
+</div>
