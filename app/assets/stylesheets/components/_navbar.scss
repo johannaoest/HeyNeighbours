@@ -32,3 +32,32 @@
 .navbar-dark .navbar-nav .nav-link:hover {
   color: #ffb100;
 }
+
+.nav-notifications {
+  display: flex;
+  align-items: center;
+}
+
+.count {
+  background-color: red;
+  border-radius: 50%;
+  padding: 0;
+  height: 31px;
+  color: white;
+  width: 31px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 6px;
+}
+
+.count-navbar {
+  right: -2px;
+  bottom: 11px;
+  font-size: 18px;
+}
+
+.noti-container {
+  height: 83px;
+}

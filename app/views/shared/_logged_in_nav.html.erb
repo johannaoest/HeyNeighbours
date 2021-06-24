@@ -4,8 +4,13 @@
   <%= render 'shared/nav_item', path: new_job_path, text: 'Offer a job' %>
 <% end %>
 
-<li class="nav-item dropdown">
+<li class="nav-item dropdown position-relative noti-container">
   <img src= <%= choose_avatar(current_user) %> class="card-job-user avatar-bordered" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <% if current_user.notifications.unread.count > 0 %>
+    <span class="count count-navbar position-absolute">
+        <%= current_user.notifications.unread.count %>
+    </span>
+  <% end %>
   <%= render 'shared/avatar_dropdown' %>
 
 </li>
