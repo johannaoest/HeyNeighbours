@@ -1,14 +1,16 @@
 <div class="checkout-container">
   <div class="container">
     <div class="row py-4">
-      <div class="col-md-3"><%= image_tag @order.booking.job.photo.service_url, width: '100%' %></div>
+      <div class="col-md-3" ><%= image_tag @order.booking.job.photo.service_url, class:"image-checkout", width: '100%', height: '150px' %></div>
       <div class="col">
         <div class="title">
           <h1>Checkout summary</h1>
         </div>
-        <button id="pay" class="btn-orange">Pay</button>
-        <button id="pay" class="btn-orange">Cancel</button>
-        <button id="pay" class="btn-orange">Edit</button>
+        <div class="actions" style="display: flex">
+          <button id="pay" class="btn-orange">Pay</button>
+          <button id="pay" class="btn-orange">Cancel</button>
+          <button id="pay" class="btn-orange">Edit</button>
+        </div>
         <!-- Commented for the lecture, remove comments. -->
         <script src="https://js.stripe.com/v3/"></script>
         <script>
