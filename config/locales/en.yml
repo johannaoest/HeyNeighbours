@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  notifications:
+    booking_notification:
+      message: "You have a new application on %{booking.job}!"
+    review_notification:
+      message: 'You have a new review!'

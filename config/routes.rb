@@ -27,9 +27,13 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+
+  resources :notifications, only: :index
+
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
   end
+
 
 
 

@@ -4,6 +4,12 @@ class Booking < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
   after_update :booking_selection
+  after_commit :deliver_notification
+
+  def deliver_notification
+    notification = BookingNotification.with(job: self.job.id)
+    notification.deliver(self.job.user)
+  end
 
   def booking_selection
     if self.confirmed == true

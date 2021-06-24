@@ -3,6 +3,7 @@
   <%= link_to "Jobs posted by me", jobs_path(my_jobs: true), class: "dropdown-item" %>
   <%= link_to "Jobs done by me", bookings_path, class: "dropdown-item" %>
   <%= link_to "Messages", chatrooms_path(), class: "dropdown-item" %>
+  <%= link_to "Notifications", notifications_path(), class: "dropdown-item" %>
 
   <div class="dropdown-divider"></div>
   <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
