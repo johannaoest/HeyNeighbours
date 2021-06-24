@@ -31,6 +31,6 @@ class ReviewNotification < Noticed::Base
 
   def url
     review = Review.find(params[:review])
-    users_show_path(review.user)
+    users_show_path(review.user_id)
   end
 end
