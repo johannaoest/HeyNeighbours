@@ -9,5 +9,4 @@ class Review < ApplicationRecord
     notification = ReviewNotification.with(review: self.id)
     notification.deliver(self.user)
   end
-
 end
