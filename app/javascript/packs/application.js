@@ -77,11 +77,14 @@ document.addEventListener('turbolinks:load', () => {
     } else {
       mapButton.innerText = "Open map";
     };
-
   });
 
-  map.on('idle', function(){
-    map.resize();
-  });
+
+
+
+
+  // map.on('idle', function(){
+  //   map.resize();
+  // });
 }
 });
