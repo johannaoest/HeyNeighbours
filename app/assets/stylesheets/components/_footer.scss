@@ -1,10 +1,13 @@
 .footer {
   background-color: rgba($color: #1b2d4221, $alpha: 0.9);
-  align-items: center;
-  justify-content: space-between;
   height: 200px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  display: inline-block;
+  margin-top: 150px;
 }
 
 .motto {

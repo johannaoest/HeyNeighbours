@@ -46,16 +46,17 @@ import { initStarRating } from '../plugins/init_star_rating';
 
 
 
-document.addEventListener('turbolinks:load', () => {
-  initAutocomplete();
-  // filterValue();
-  initMapbox();
-  initStarRating();
+// document.addEventListener('turbolinks:load', () => {
+//   initAutocomplete();
+//   // filterValue();
+//   initMapbox();
+//   initStarRating();
 
-})
+// })
 
-const job_index = document.querySelector(".jobs-index")
 document.addEventListener('turbolinks:load', () => {
+  const job_index = document.querySelector(".jobs-index")
+
   initAutocomplete();
   initChatroomCable();
   initStarRating();
