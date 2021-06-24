@@ -1,14 +1,16 @@
 class OrdersController < ApplicationController
   def create
-  job = Job.find(params[:job_id])
-  order  = Order.create!(job: job, amount: job.price, state: 'pending', user: current_user)
+  booking =Booking.find(params[:booking_id])
+  booking.update(confirmed: true, pending: false)
+  order = Order.create!(booking: booking, amount: booking.job.price, state: 'pending', user: current_user)
 
+  authorize order
   session = Stripe::Checkout::Session.create(
     payment_method_types: ['card'],
     line_items: [{
-      name: job.name,
-      images: [job.photo.url],
-      amount: job.price_cents,
+      name: booking.job.title,
+      images: [booking.job.photo.service_url],
+      amount: booking.job.price_cents,
       currency: 'eur',
       quantity: 1
     }],
@@ -22,7 +24,6 @@ class OrdersController < ApplicationController
 
   def show
   @order = current_user.orders.find(params[:id])
+  authorize @order
   end
-
-
 end

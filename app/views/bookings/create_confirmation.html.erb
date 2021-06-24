@@ -11,7 +11,13 @@
         <%= f.input :duration, collection: Job.duration, default: Job.duration.first, wrapper_html: { class: 'inline-element' }, input_html: { class: 'form-element' } %>
 
       <%= f.submit 'Confirm', class:'btn-orange' %>
+
   <% end %>
+
+    <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'booking_id', @booking.id %>
+        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
   <div class="link">
     <%= link_to "Back", :back %>
   </div>
