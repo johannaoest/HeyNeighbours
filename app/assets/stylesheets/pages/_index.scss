@@ -115,6 +115,7 @@
     justify-content: space-between;
     flex-direction: column;
     padding: 10px;
+    margin:15px;
     width: 100%;
 }
 
@@ -122,5 +123,18 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+
+.icons-notifications{
+  flex-direction: column;
+  width: 90%;
+  padding: 15px;
+  margin: auto;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  margin: 5px;
+
 }
 

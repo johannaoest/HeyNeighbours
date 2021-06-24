@@ -10,13 +10,14 @@
     overflow: scroll;
 }
 
-.checkout-container {
+.chats-container {
+
     background-color: rgba($color: #1b2d4221, $alpha: 0.75);
     color: white;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(black, $alpha: 0.7);
-    width: 40%;
+    width: 35%;
     height: 80vh;
     margin: auto;
     overflow: scroll;
@@ -32,6 +33,7 @@
     margin: 5px;
 }
 
+
 .notification a {
     color: black;
     font-size: larger;
@@ -39,5 +41,9 @@
 }
 
 .notification:hover {
+    background-color: rgba($color: white, $alpha: 0.8);
+}
+
+.chats:hover {
     background-color: rgba($color: white, $alpha: 0.8);
 }

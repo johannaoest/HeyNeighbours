@@ -15,7 +15,7 @@
     height: 8px;
     background-color: rgba($color: #0f1a2521, $alpha: 1.0);
   }
-  
+
   .show-container::-webkit-scrollbar-thumb {
       background: white;
   }
@@ -55,6 +55,7 @@
 
 .avatar-container {
     height:80px;
+    justify-content: flex-end;
 }
 
 .employer-info {
