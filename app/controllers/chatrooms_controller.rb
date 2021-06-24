@@ -1,4 +1,13 @@
 class ChatroomsController < ApplicationController
+  def create
+    @booking = Booking.find(params[:booking_id])
+    @chatroom = Chatroom.new(name: @booking.job.title, recipient_id: @booking.user.id, sender_id: current_user.id)
+    authorize @chatroom
+    @chatroom.save
+
+    redirect_to chatroom_path(@chatroom)
+  end
+
   def show
     @chatroom = Chatroom.find(params[:id])
     authorize @chatroom
