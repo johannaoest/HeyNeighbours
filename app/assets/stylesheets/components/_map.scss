@@ -7,12 +7,12 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-#map {
+
+.map-container{
   box-shadow: 2px 2px 3px black;
   height: 75vh;
   width: 500px;
 }
-
 .mapboxgl-map {
   overflow: visible !important;
 }
@@ -31,6 +31,7 @@
   position: relative;
   left: 0px;
 }
+
 
 .open-map {
   margin-left: 0px;
