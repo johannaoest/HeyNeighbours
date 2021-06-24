@@ -10,7 +10,7 @@
 #map {
   box-shadow: 2px 2px 3px black;
   height: 75vh;
-  width: 700px;
+  width: 500px;
 }
 
 .mapboxgl-map {
@@ -58,7 +58,7 @@
   width: 150px;
   position: absolute;
   z-index: 3;
-  top: 10px;
+  bottom: 10px;
   right: 10px;
   left: 165px;
 
