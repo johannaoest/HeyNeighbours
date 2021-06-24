@@ -17,9 +17,6 @@ Rails.application.routes.draw do
 
   resources :jobs do
     resources :bookings, only: %i[new create]
-      resources :orders, only: [:show, :create] do
-      resources :payments, only: :new
-      end
   end
 
   resources :bookings, except: %i[new create] do
@@ -28,6 +25,10 @@ Rails.application.routes.draw do
 
   resources :chatrooms, only: %i[show index] do
     resources :messages, only: :create
+  end
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
   end
 
 
