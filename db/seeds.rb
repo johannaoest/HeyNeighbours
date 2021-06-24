@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 UserCategory.destroy_all
+Notification.destroy_all
 Category.destroy_all
 puts "Deleting all Categories..."
 Message.destroy_all
