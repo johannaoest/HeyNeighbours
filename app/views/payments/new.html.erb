@@ -1,21 +1,65 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"><%= image_tag @order.booking.job.photo.service_url, width: '100%' %></div>
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @order.booking.job.title %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
-      <!-- Commented for the lecture, remove comments. -->
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_session_id %>'
+<div class="checkout-container">
+  <div class="container">
+    <div class="row py-4">
+      <div class="col-md-3"><%= image_tag @order.booking.job.photo.service_url, width: '100%' %></div>
+      <div class="col">
+        <div class="title">
+          <h1>Checkout summary</h1>
+        </div>
+        <button id="pay" class="btn-orange">Pay</button>
+        <button id="pay" class="btn-orange">Cancel</button>
+        <button id="pay" class="btn-orange">Edit</button>
+        <!-- Commented for the lecture, remove comments. -->
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @order.checkout_session_id %>'
+            });
           });
-        });
-      </script>
+        </script>
+      </div>
+    </div>
+  </div>
+  <div class="container mb-5">
+    <div class="title">
+        <h3>Job details</h3>
+      </div>
+      <p><%= @order.booking.job.details %></p>
+  </div>
+  <div class="container mb-5">
+    <table style="width: 100%", border=1 frame="BELOW" rules="NONE">
+      <thead>
+        <tr>
+        <th>Date</th>
+        <th>Duration</th>
+        <th>Earning</th>
+        <th>Location</th>
+        <th colspan="6"></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= @order.booking.job.date %></td>
+                <td><%= @order.booking.job.duration %></td>
+                <td><%= @order.booking.job.price %> euros</td>
+                <td><%= @order.booking.job.location %></td>
+            </tr>
+        </tbody>
+      </table>
+  </div>
+  <div class="title">
+    <h3>Applicant info</h3>
+  </div>
+  <div class="employer-container mb-5">
+    <div class="avatar-container">
+      <img src= <%= choose_avatar(@order.booking.user) %> class="card-job-user avatar-bordered">
+    </div>
+    <div class="applicant-info">
+      <h2><%= @order.booking.user.first_name %> <%= @order.booking.user.last_name %></h2>
+      <p><%= @order.booking.user.introduction %></p>
     </div>
   </div>
 </div>
