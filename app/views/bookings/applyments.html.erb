@@ -39,14 +39,21 @@
                 <div class="applyments-buttons">
 
                         <% if booking.confirmed %>
-                            <% if booking.employee_rated %>
-                                <h2>Done!</h2>
+                            <% if booking.paid %>
+                                <% if booking.employee_rated %>
+                                    <h2>Done!</h2>
+                                <% else %>
+                                    <div class="btn-orange mb-2 ml-3 text-center h6">
+                                        <%= link_to new_booking_review_path(booking) do %>
+                                            Rate <%= booking.user.first_name %>
+                                        <% end %>
+                                    </div>
+                                <% end %>
                             <% else %>
-                                <div class="btn-orange mb-2 ml-3 text-center h6">
-                                    <%= link_to new_booking_review_path(booking) do %>
-                                        Rate <%= booking.user.first_name %>
-                                    <% end %>
-                                </div>
+                                <%= form_tag orders_path do %>
+                                    <%= hidden_field_tag 'booking_id', booking.id %>
+                                    <%= submit_tag 'Pay', class: 'btn-orange' %>
+                                <% end %>
                             <% end %>
                         <% elsif booking.pending %>
                             <h2>Pending...</h2>
