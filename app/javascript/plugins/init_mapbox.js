@@ -12,7 +12,6 @@ const buildMap = (mapElement) => {
 
 };
 
-console.log("test 2")
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
@@ -32,6 +31,7 @@ const fitMapToMarkers = (map, markers) => {
 
 
 const filterValue = () => {
+  const mapElement = document.getElementById('map');
   if (mapElement) {  const input = document.querySelector('#filter_distance');
     const value = document.getElementById('value');
     const distance = document.getElementById('map').dataset.distance
