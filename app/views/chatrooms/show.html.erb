@@ -5,7 +5,7 @@
   <div class="messages" id="messages" data-chatroom-id="<%= @chatroom.id %>">
 
     <% @chatroom.messages.each do |message| %>
-      <div class="message-container reciever" id="message-<%= message.id %>">
+       <div class="message-container <% if message.user == current_user %>reciever<% end %>" id="message-<%= message.id %>">
         <div class="icons ">
               <i class="author">
 
@@ -18,9 +18,9 @@
               </i>
                 <p><%= message.content %></p>
                 </div>
-        </div>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
 
 </div>
